@@ -17,6 +17,7 @@ public class interfaz extends javax.swing.JFrame {
     public interfaz() {
         initComponents();
         setLocationRelativeTo(null);
+        
         this.panelTitular.setVisible(false);
         this.panelTitVendedores.setVisible(false);
         this.panelTitInmuebles.setVisible(false);
@@ -24,6 +25,9 @@ public class interfaz extends javax.swing.JFrame {
         
         this.panelVendedor.setVisible(true);
         this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(false);
+        
+        
         
     }
     
@@ -146,7 +150,7 @@ public class interfaz extends javax.swing.JFrame {
         btnVendVentaSalir = new javax.swing.JButton();
         btnVendVentaGuardar = new javax.swing.JButton();
         btnVendVentaNuevo = new javax.swing.JButton();
-        panelVendNuevoCliente = new javax.swing.JPanel();
+        panelVendCliente = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tablaVendCliente = new javax.swing.JTable();
         jLabel37 = new javax.swing.JLabel();
@@ -224,7 +228,7 @@ public class interfaz extends javax.swing.JFrame {
         panelTitular.setLayout(panelTitularLayout);
         panelTitularLayout.setHorizontalGroup(
             panelTitularLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+            .addComponent(lblNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitularLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnTitVendedores, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,7 +363,7 @@ public class interfaz extends javax.swing.JFrame {
         panelTitVendedores.setLayout(panelTitVendedoresLayout);
         panelTitVendedoresLayout.setHorizontalGroup(
             panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 980, Short.MAX_VALUE)
+            .addGap(0, 990, Short.MAX_VALUE)
             .addGroup(panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelTitVendedoresLayout.createSequentialGroup()
                     .addGap(2, 2, 2)
@@ -381,7 +385,7 @@ public class interfaz extends javax.swing.JFrame {
         );
         panelTitVendedoresLayout.setVerticalGroup(
             panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGap(0, 551, Short.MAX_VALUE)
             .addGroup(panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelTitVendedoresLayout.createSequentialGroup()
                     .addGap(18, 18, 18)
@@ -550,7 +554,7 @@ public class interfaz extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(panelTitInmueblesLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -563,7 +567,7 @@ public class interfaz extends javax.swing.JFrame {
                     .addComponent(lblTitInmCodAgencia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTitInmNombreAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(panelTitInmueblesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -705,7 +709,7 @@ public class interfaz extends javax.swing.JFrame {
         panelTitVentas.setLayout(panelTitVentasLayout);
         panelTitVentasLayout.setHorizontalGroup(
             panelTitVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitVentaNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
+            .addComponent(lblTitVentaNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
             .addGroup(panelTitVentasLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel14)
@@ -737,7 +741,7 @@ public class interfaz extends javax.swing.JFrame {
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -780,7 +784,7 @@ public class interfaz extends javax.swing.JFrame {
         panelVendedor.setLayout(panelVendedorLayout);
         panelVendedorLayout.setHorizontalGroup(
             panelVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblNombreAgencia1, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
+            .addComponent(lblNombreAgencia1, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVendedorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnVendNuevaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -949,7 +953,7 @@ public class interfaz extends javax.swing.JFrame {
         panelVendNuevaVenta.setLayout(panelVendNuevaVentaLayout);
         panelVendNuevaVentaLayout.setHorizontalGroup(
             panelVendNuevaVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblVendVentaNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
+            .addComponent(lblVendVentaNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
             .addGroup(panelVendNuevaVentaLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel30)
@@ -981,7 +985,7 @@ public class interfaz extends javax.swing.JFrame {
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1104,38 +1108,38 @@ public class interfaz extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout panelVendNuevoClienteLayout = new javax.swing.GroupLayout(panelVendNuevoCliente);
-        panelVendNuevoCliente.setLayout(panelVendNuevoClienteLayout);
-        panelVendNuevoClienteLayout.setHorizontalGroup(
-            panelVendNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelVendClienteLayout = new javax.swing.GroupLayout(panelVendCliente);
+        panelVendCliente.setLayout(panelVendClienteLayout);
+        panelVendClienteLayout.setHorizontalGroup(
+            panelVendClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblVendClienteNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
-            .addGroup(panelVendNuevoClienteLayout.createSequentialGroup()
+            .addGroup(panelVendClienteLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jLabel37)
                 .addGap(6, 6, 6)
                 .addComponent(lblVendClienteCodAgencia)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panelVendNuevoClienteLayout.createSequentialGroup()
+            .addGroup(panelVendClienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelVendNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelVendClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6)
-                    .addGroup(panelVendNuevoClienteLayout.createSequentialGroup()
+                    .addGroup(panelVendClienteLayout.createSequentialGroup()
                         .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        panelVendNuevoClienteLayout.setVerticalGroup(
-            panelVendNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVendNuevoClienteLayout.createSequentialGroup()
+        panelVendClienteLayout.setVerticalGroup(
+            panelVendClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVendClienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelVendNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelVendClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel37)
                     .addComponent(lblVendClienteCodAgencia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblVendClienteNombreAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(panelVendNuevoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelVendClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -1147,7 +1151,7 @@ public class interfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelTitular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelTitular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -1176,12 +1180,12 @@ public class interfaz extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelVendNuevoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelVendCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(20, 20, 20)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelTitular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelTitular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(10, 10, 10)
@@ -1210,7 +1214,7 @@ public class interfaz extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelVendNuevoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelVendCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(23, 23, 23)))
         );
 
@@ -1222,6 +1226,10 @@ public class interfaz extends javax.swing.JFrame {
         this.panelTitVendedores.setVisible(false);
         this.panelTitInmuebles.setVisible(false);
         this.panelTitVentas.setVisible(true);
+        
+        this.panelVendedor.setVisible(false);
+        this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(false);
     }//GEN-LAST:event_btnTitVentasActionPerformed
 
     private void btnTitVendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVendedoresActionPerformed
@@ -1230,12 +1238,20 @@ public class interfaz extends javax.swing.JFrame {
         this.panelTitInmuebles.setVisible(false);
         this.panelTitVentas.setVisible(false);       
         
+        this.panelVendedor.setVisible(false);
+        this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(false);
     }//GEN-LAST:event_btnTitVendedoresActionPerformed
 
     private void btnTitInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmueblesActionPerformed
         this.panelTitular.setVisible(false);
         this.panelTitVendedores.setVisible(false);
         this.panelTitInmuebles.setVisible(true);
+        this.panelTitVentas.setVisible(false);
+        
+        this.panelVendedor.setVisible(false);
+        this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(false);
     }//GEN-LAST:event_btnTitInmueblesActionPerformed
 
     private void btnTitInmModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmModificarActionPerformed
@@ -1247,6 +1263,10 @@ public class interfaz extends javax.swing.JFrame {
         this.panelTitVendedores.setVisible(false);
         this.panelTitInmuebles.setVisible(false);
         this.panelTitVentas.setVisible(false);
+        
+        this.panelVendedor.setVisible(false);
+        this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(false);
     }//GEN-LAST:event_btnTitVenSalirActionPerformed
 
     private void btnTitInmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmSalirActionPerformed
@@ -1254,6 +1274,10 @@ public class interfaz extends javax.swing.JFrame {
         this.panelTitVendedores.setVisible(false);
         this.panelTitInmuebles.setVisible(false);
         this.panelTitVentas.setVisible(false);
+        
+        this.panelVendedor.setVisible(false);
+        this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(false);
     }//GEN-LAST:event_btnTitInmSalirActionPerformed
 
     private void btnTitVentaSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVentaSalirActionPerformed
@@ -1261,22 +1285,54 @@ public class interfaz extends javax.swing.JFrame {
         this.panelTitVendedores.setVisible(false);
         this.panelTitInmuebles.setVisible(false);
         this.panelTitVentas.setVisible(false);
+        
+        this.panelVendedor.setVisible(false);
+        this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(false);
     }//GEN-LAST:event_btnTitVentaSalirActionPerformed
 
     private void btnVendVentaSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendVentaSalirActionPerformed
-        // TODO add your handling code here:
+        this.panelTitular.setVisible(false);
+        this.panelTitVendedores.setVisible(false);
+        this.panelTitInmuebles.setVisible(false);
+        this.panelTitVentas.setVisible(false);
+        
+        this.panelVendedor.setVisible(true);
+        this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(false);
     }//GEN-LAST:event_btnVendVentaSalirActionPerformed
 
     private void btnVendNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendNuevaVentaActionPerformed
-        // TODO add your handling code here:
+        this.panelTitular.setVisible(false);
+        this.panelTitVendedores.setVisible(false);
+        this.panelTitInmuebles.setVisible(false);
+        this.panelTitVentas.setVisible(false);
+        
+        this.panelVendedor.setVisible(false);
+        this.panelVendNuevaVenta.setVisible(true);
+        this.panelVendCliente.setVisible(false);
     }//GEN-LAST:event_btnVendNuevaVentaActionPerformed
 
     private void btnVendClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendClientesActionPerformed
-        // TODO add your handling code here:
+        this.panelTitular.setVisible(false);
+        this.panelTitVendedores.setVisible(false);
+        this.panelTitInmuebles.setVisible(false);
+        this.panelTitVentas.setVisible(false);
+        
+        this.panelVendedor.setVisible(false);
+        this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(true);
     }//GEN-LAST:event_btnVendClientesActionPerformed
 
     private void btnVendClienteSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendClienteSalirActionPerformed
-        // TODO add your handling code here:
+        this.panelTitular.setVisible(false);
+        this.panelTitVendedores.setVisible(false);
+        this.panelTitInmuebles.setVisible(false);
+        this.panelTitVentas.setVisible(false);
+        
+        this.panelVendedor.setVisible(true);
+        this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(false);
     }//GEN-LAST:event_btnVendClienteSalirActionPerformed
 
     /**
@@ -1410,8 +1466,8 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel panelTitVendedores;
     private javax.swing.JPanel panelTitVentas;
     private javax.swing.JPanel panelTitular;
+    private javax.swing.JPanel panelVendCliente;
     private javax.swing.JPanel panelVendNuevaVenta;
-    private javax.swing.JPanel panelVendNuevoCliente;
     private javax.swing.JPanel panelVendedor;
     private javax.swing.JTable tablaTitInmueble;
     private javax.swing.JTable tablaTitVendedor;
