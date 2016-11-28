@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-nov-2016 13:35:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.Inmueble" table="inmueble" catalog="dam44_agencia" optimistic-lock="version">
+        <id name="idInmueble" type="java.lang.Integer">
+            <column name="idInmueble" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="agencia" class="pojos.Agencia" fetch="select">
+            <column name="idAgencia" not-null="true" />
+        </many-to-one>
+        <property name="direccion" type="string">
+            <column name="direccion" length="100" not-null="true" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="tipo" length="45" not-null="true">
+                <comment>piso o local</comment>
+            </column>
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="45" not-null="true">
+                <comment>alquilado, vendido o libre</comment>
+            </column>
+        </property>
+        <property name="propietario" type="string">
+            <column name="propietario" length="100" not-null="true" />
+        </property>
+        <property name="superficie" type="int">
+            <column name="superficie" not-null="true" />
+        </property>
+        <property name="habitacionesP" type="java.lang.Integer">
+            <column name="habitacionesP" />
+        </property>
+        <property name="ba&#241;osP" type="java.lang.Integer">
+            <column name="ba&#241;osP" />
+        </property>
+        <property name="tipoGasP" type="string">
+            <column name="tipoGasP" length="100" />
+        </property>
+        <property name="ubicacionP" type="string">
+            <column name="ubicacionP" length="45" />
+        </property>
+        <property name="licenciaLocal" type="string">
+            <column name="licenciaLocal" length="45" />
+        </property>
+        <set name="ventaInmuebles" table="ventaInmueble" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idInmueble" not-null="true" />
+            </key>
+            <one-to-many class="pojos.VentaInmueble" />
+        </set>
+    </class>
+</hibernate-mapping>

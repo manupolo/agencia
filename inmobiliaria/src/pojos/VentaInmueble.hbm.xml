@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-nov-2016 13:35:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojos.VentaInmueble" table="ventaInmueble" catalog="dam44_agencia" optimistic-lock="version">
+        <composite-id name="id" class="pojos.VentaInmuebleId">
+            <key-property name="idInmueble" type="int">
+                <column name="idInmueble" />
+            </key-property>
+            <key-property name="idCliente" type="string">
+                <column name="idCliente" length="9" />
+            </key-property>
+            <key-property name="idVendedor" type="string">
+                <column name="idVendedor" length="9" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="cliente" class="pojos.Cliente" update="false" insert="false" fetch="select">
+            <column name="idCliente" length="9" not-null="true" />
+        </many-to-one>
+        <many-to-one name="inmueble" class="pojos.Inmueble" update="false" insert="false" fetch="select">
+            <column name="idInmueble" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vendedor" class="pojos.Vendedor" update="false" insert="false" fetch="select">
+            <column name="idVendedor" length="9" not-null="true" />
+        </many-to-one>
+        <property name="se&#241;al" type="float">
+            <column name="se&#241;al" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="fecha" type="string">
+            <column name="fecha" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
