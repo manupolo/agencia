@@ -44,6 +44,7 @@ Contributor(s):
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://192.168.28.3:3306/dam44_agencia?zeroDateTimeBehavior=convertToNull</property>
+    <!--<property name="hibernate.connection.url">jdbc:mysql://79.148.236.236:3306/dam44_agencia?zeroDateTimeBehavior=convertToNull</property>-->
     <property name="hibernate.connection.username">dam44</property>
     <property name="hibernate.connection.password">popeye5</property>
     <mapping resource="pojos/Vendedor.hbm.xml"/>
