@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-nov-2016 13:35:04 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-nov-2016 19:53:02 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojos.Inmueble" table="inmueble" catalog="dam44_agencia" optimistic-lock="version">
+    <class name="pojo.Inmueble" table="inmueble" catalog="dam44_agencia" optimistic-lock="version">
         <id name="idInmueble" type="java.lang.Integer">
             <column name="idInmueble" />
             <generator class="identity" />
         </id>
-        <many-to-one name="agencia" class="pojos.Agencia" fetch="select">
+        <many-to-one name="agencia" class="pojo.Agencia" fetch="select">
             <column name="idAgencia" not-null="true" />
         </many-to-one>
         <property name="direccion" type="string">
@@ -49,7 +49,7 @@
             <key>
                 <column name="idInmueble" not-null="true" />
             </key>
-            <one-to-many class="pojos.VentaInmueble" />
+            <one-to-many class="pojo.VentaInmueble" />
         </set>
     </class>
 </hibernate-mapping>

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-nov-2016 13:35:04 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-nov-2016 19:53:02 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojos.Agencia" table="agencia" catalog="dam44_agencia" optimistic-lock="version">
+    <class name="pojo.Agencia" table="agencia" catalog="dam44_agencia" optimistic-lock="version">
         <id name="idAgencia" type="java.lang.Integer">
             <column name="idAgencia" />
             <generator class="identity" />
@@ -30,13 +30,13 @@
             <key>
                 <column name="idAgencia" not-null="true" />
             </key>
-            <one-to-many class="pojos.Vendedor" />
+            <one-to-many class="pojo.Vendedor" />
         </set>
         <set name="inmuebles" table="inmueble" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idAgencia" not-null="true" />
             </key>
-            <one-to-many class="pojos.Inmueble" />
+            <one-to-many class="pojo.Inmueble" />
         </set>
     </class>
 </hibernate-mapping>

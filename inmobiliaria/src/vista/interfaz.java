@@ -1,18 +1,23 @@
 
 package vista;
 
-import metodos.vendedor;
+import facadeVendedor.facadeCliente;
+import javax.swing.JOptionPane;
+import metodos.login;
 
 public class interfaz extends javax.swing.JFrame {
-    vendedor v = new vendedor();
+    facadeCliente fc = new facadeCliente();
+    login l = new login();
+    
+    //25874545F
     
     public interfaz() {
         initComponents();
         setLocationRelativeTo(null);
         
-        this.panelLogin.setVisible(false);
+        this.panelLogin.setVisible(true);
         
-        this.panelTitular.setVisible(true);
+        this.panelTitular.setVisible(false);
         this.panelTitVendedores.setVisible(false);
         this.panelTitInmuebles.setVisible(false);
         this.panelTitVentas.setVisible(false);
@@ -39,6 +44,7 @@ public class interfaz extends javax.swing.JFrame {
         lblNombreAgencia2 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         txtLogin = new javax.swing.JTextField();
+        btnConfirmarLog = new javax.swing.JButton();
         panelTitular = new javax.swing.JPanel();
         btnTitVentas = new javax.swing.JButton();
         lblNombreAgencia = new javax.swing.JLabel();
@@ -186,28 +192,33 @@ public class interfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelLogin.setBackground(new java.awt.Color(0, 0, 0));
-
         lblNombreAgencia2.setBackground(new java.awt.Color(255, 255, 255));
         lblNombreAgencia2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        lblNombreAgencia2.setForeground(new java.awt.Color(240, 240, 240));
         lblNombreAgencia2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombreAgencia2.setText("INTRODUZCA SU IDENTIFICACION");
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(240, 240, 240));
         jLabel23.setText("CLAVE:");
+
+        btnConfirmarLog.setText("Confirmar");
+        btnConfirmarLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarLogActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
         panelLogin.setLayout(panelLoginLayout);
         panelLoginLayout.setHorizontalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblNombreAgencia2, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE)
+            .addComponent(lblNombreAgencia2, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
             .addGroup(panelLoginLayout.createSequentialGroup()
                 .addGap(325, 325, 325)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnConfirmarLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelLoginLayout.setVerticalGroup(
@@ -219,7 +230,9 @@ public class interfaz extends javax.swing.JFrame {
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23))
-                .addGap(248, 248, 248))
+                .addGap(18, 18, 18)
+                .addComponent(btnConfirmarLog)
+                .addGap(207, 207, 207))
         );
 
         btnTitVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ventasNor.png"))); // NOI18N
@@ -434,7 +447,7 @@ public class interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTitVendedores)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 720, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 740, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(6, 6, 6)
                 .addComponent(lblTitVenCodAgencia)
@@ -627,7 +640,7 @@ public class interfaz extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(panelTitInmueblesLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitInmueblesLayout.createSequentialGroup()
                         .addComponent(jLabel43)
@@ -797,7 +810,7 @@ public class interfaz extends javax.swing.JFrame {
         panelTitVentas.setLayout(panelTitVentasLayout);
         panelTitVentasLayout.setHorizontalGroup(
             panelTitVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitVentaNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+            .addComponent(lblTitVentaNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE)
             .addGroup(panelTitVentasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelTitVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -881,7 +894,7 @@ public class interfaz extends javax.swing.JFrame {
         panelVendedor.setLayout(panelVendedorLayout);
         panelVendedorLayout.setHorizontalGroup(
             panelVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblNombreAgencia1, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+            .addComponent(lblNombreAgencia1, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVendedorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnVendNuevaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1101,7 +1114,7 @@ public class interfaz extends javax.swing.JFrame {
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1116,6 +1129,11 @@ public class interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaVendCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaVendClienteMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(tablaVendCliente);
 
         jLabel37.setText("Código Agencia: ");
@@ -1180,8 +1198,18 @@ public class interfaz extends javax.swing.JFrame {
         jPanel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnVendClienteModificar.setText("Modificar");
+        btnVendClienteModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendClienteModificarActionPerformed(evt);
+            }
+        });
 
         btnVendClienteEliminar.setText("Eliminar");
+        btnVendClienteEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendClienteEliminarActionPerformed(evt);
+            }
+        });
 
         btnVendClienteSalir.setText("Salir");
         btnVendClienteSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -1191,8 +1219,18 @@ public class interfaz extends javax.swing.JFrame {
         });
 
         btnVendClienteGuardar.setText("Guardar");
+        btnVendClienteGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendClienteGuardarActionPerformed(evt);
+            }
+        });
 
         btnVendClienteNuevo.setText("Nuevo");
+        btnVendClienteNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendClienteNuevoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1232,7 +1270,7 @@ public class interfaz extends javax.swing.JFrame {
         panelVendCliente.setLayout(panelVendClienteLayout);
         panelVendClienteLayout.setHorizontalGroup(
             panelVendClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblVendClienteNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE)
+            .addComponent(lblVendClienteNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
             .addGroup(panelVendClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelVendClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1317,7 +1355,7 @@ public class interfaz extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelTitular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(10, 10, 10)
@@ -1340,7 +1378,7 @@ public class interfaz extends javax.swing.JFrame {
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(21, 21, 21)
+                    .addContainerGap()
                     .addComponent(panelVendNuevaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(12, 12, 12)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1382,6 +1420,7 @@ public class interfaz extends javax.swing.JFrame {
         this.panelVendedor.setVisible(false);
         this.panelVendNuevaVenta.setVisible(false);
         this.panelVendCliente.setVisible(false);
+        
         
         
     }//GEN-LAST:event_btnTitVendedoresActionPerformed
@@ -1443,6 +1482,7 @@ public class interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTitVentaSalirActionPerformed
 
     private void btnVendVentaSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendVentaSalirActionPerformed
+        
         this.panelLogin.setVisible(false);
         
         this.panelTitular.setVisible(false);
@@ -1453,6 +1493,10 @@ public class interfaz extends javax.swing.JFrame {
         this.panelVendedor.setVisible(true);
         this.panelVendNuevaVenta.setVisible(false);
         this.panelVendCliente.setVisible(false);
+        
+        
+        
+        
     }//GEN-LAST:event_btnVendVentaSalirActionPerformed
 
     private void btnVendNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendNuevaVentaActionPerformed
@@ -1469,6 +1513,8 @@ public class interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendNuevaVentaActionPerformed
 
     private void btnVendClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendClientesActionPerformed
+        //Entrar en cliente
+        
         this.panelLogin.setVisible(false);
         
         this.panelTitular.setVisible(false);
@@ -1479,9 +1525,30 @@ public class interfaz extends javax.swing.JFrame {
         this.panelVendedor.setVisible(false);
         this.panelVendNuevaVenta.setVisible(false);
         this.panelVendCliente.setVisible(true);
+        
+        //Botones
+        this.btnVendClienteGuardar.setEnabled(false);
+        this.btnVendClienteModificar.setEnabled(false);
+        this.btnVendClienteEliminar.setEnabled(false);
+        
+        //txt
+        this.txtVendClienteDni.setEditable(false);
+        this.txtVendClienteNombre.setEditable(false);
+        this.txtVendClienteApellidos.setEditable(false);
+        this.txtVendClienteTelefono.setEditable(false);
+        
+        //txt blanco
+        this.txtVendClienteDni.setText("");
+        this.txtVendClienteNombre.setText("");
+        this.txtVendClienteApellidos.setText("");
+        this.txtVendClienteTelefono.setText("");
+        
+        //tabla
+        tablaVendCliente.setModel(fc.tablaCliente());
     }//GEN-LAST:event_btnVendClientesActionPerformed
 
     private void btnVendClienteSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendClienteSalirActionPerformed
+        //boton salir cliente
         this.panelLogin.setVisible(false);
         
         this.panelTitular.setVisible(false);
@@ -1492,7 +1559,192 @@ public class interfaz extends javax.swing.JFrame {
         this.panelVendedor.setVisible(true);
         this.panelVendNuevaVenta.setVisible(false);
         this.panelVendCliente.setVisible(false);
+        
     }//GEN-LAST:event_btnVendClienteSalirActionPerformed
+
+    private void tablaVendClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVendClienteMouseClicked
+        //Tabla clientes
+        
+        String dni = "";
+        String nombre = "";
+        String apellidos = "";
+        String telefono = "";
+        
+        int fila;
+        
+        fila = this.tablaVendCliente.rowAtPoint(evt.getPoint());
+             if (fila > -1){                
+                dni = ( String.valueOf( this.tablaVendCliente.getValueAt(fila, 0) ));
+                nombre = ( String.valueOf( this.tablaVendCliente.getValueAt(fila, 1) ));
+                apellidos = ( String.valueOf( this.tablaVendCliente.getValueAt(fila, 2) ));
+                telefono = ( String.valueOf( this.tablaVendCliente.getValueAt(fila, 3) )); 
+             }
+        
+        //botones
+        this.btnVendClienteModificar.setEnabled(true);
+        this.btnVendClienteEliminar.setEnabled(true);
+        this.btnVendClienteGuardar.setEnabled(false);
+        
+        //txt enabled
+        this.txtVendClienteDni.setEditable(false);
+        this.txtVendClienteNombre.setEditable(true);
+        this.txtVendClienteApellidos.setEditable(true);
+        this.txtVendClienteTelefono.setEditable(true);
+        
+        //txt variables
+        this.txtVendClienteDni.setText(dni);
+        this.txtVendClienteNombre.setText(nombre);
+        this.txtVendClienteApellidos.setText(apellidos);
+        this.txtVendClienteTelefono.setText(telefono);
+        
+    }//GEN-LAST:event_tablaVendClienteMouseClicked
+
+    private void btnVendClienteGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendClienteGuardarActionPerformed
+        //Boton guardar cliente
+        
+        String dni = txtVendClienteDni.getText();
+        String nombre = txtVendClienteNombre.getText();
+        String apellidos = txtVendClienteApellidos.getText();
+        int telefono = Integer.parseInt(txtVendClienteTelefono.getText());
+        
+        if(fc.insertarCliente(dni, nombre, apellidos, telefono)){
+            JOptionPane.showMessageDialog(null, "Cliente insertado.");
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al insertar cliente");
+        }
+        
+        tablaVendCliente.setModel(fc.tablaCliente());
+        
+        //txt blanco
+        this.txtVendClienteDni.setText("");
+        this.txtVendClienteNombre.setText("");
+        this.txtVendClienteApellidos.setText("");
+        this.txtVendClienteTelefono.setText("");
+        
+        //boton enabled
+        this.btnVendClienteGuardar.setEnabled(false);
+        
+    }//GEN-LAST:event_btnVendClienteGuardarActionPerformed
+
+    private void btnVendClienteModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendClienteModificarActionPerformed
+        //boton modificar cliente
+        
+        String dni = txtVendClienteDni.getText();
+        String nombre = txtVendClienteNombre.getText();
+        String apellidos = txtVendClienteApellidos.getText();
+        int telefono = Integer.parseInt(txtVendClienteTelefono.getText());
+        
+        if(fc.modificarCliente(dni, nombre, apellidos, telefono)){
+            JOptionPane.showMessageDialog(null, "Cliente modificado.");
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al modificar cliente");
+        }
+        
+        tablaVendCliente.setModel(fc.tablaCliente());
+        
+        //Botones
+        this.btnVendClienteGuardar.setEnabled(false);
+        this.btnVendClienteModificar.setEnabled(false);
+        this.btnVendClienteEliminar.setEnabled(false);
+        
+        //txt
+        this.txtVendClienteDni.setEditable(false);
+        this.txtVendClienteNombre.setEditable(false);
+        this.txtVendClienteApellidos.setEditable(false);
+        this.txtVendClienteTelefono.setEditable(false);
+        
+        //txt blanco
+        this.txtVendClienteDni.setText("");
+        this.txtVendClienteNombre.setText("");
+        this.txtVendClienteApellidos.setText("");
+        this.txtVendClienteTelefono.setText("");
+    }//GEN-LAST:event_btnVendClienteModificarActionPerformed
+
+    private void btnVendClienteEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendClienteEliminarActionPerformed
+        //boton eliminar cliente
+        
+        String dni = txtVendClienteDni.getText();
+        String nombre = txtVendClienteNombre.getText();
+        String apellidos = txtVendClienteApellidos.getText();
+        int telefono = Integer.parseInt(txtVendClienteTelefono.getText());
+        
+        if(fc.eliminarCliente(dni, nombre, apellidos, telefono)){
+            JOptionPane.showMessageDialog(null, "Cliente eliminado.");
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al eliminar cliente");
+        }
+        
+        tablaVendCliente.setModel(fc.tablaCliente());
+        
+        //Botones
+        this.btnVendClienteGuardar.setEnabled(false);
+        this.btnVendClienteModificar.setEnabled(false);
+        this.btnVendClienteEliminar.setEnabled(false);
+        
+        //txt
+        this.txtVendClienteDni.setEditable(false);
+        this.txtVendClienteNombre.setEditable(false);
+        this.txtVendClienteApellidos.setEditable(false);
+        this.txtVendClienteTelefono.setEditable(false);
+        
+        //txt blanco
+        this.txtVendClienteDni.setText("");
+        this.txtVendClienteNombre.setText("");
+        this.txtVendClienteApellidos.setText("");
+        this.txtVendClienteTelefono.setText("");
+    }//GEN-LAST:event_btnVendClienteEliminarActionPerformed
+
+    private void btnVendClienteNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendClienteNuevoActionPerformed
+        //boton nuevo cliente
+        //txt enabled
+        this.txtVendClienteDni.setEditable(true);
+        this.txtVendClienteNombre.setEditable(true);
+        this.txtVendClienteApellidos.setEditable(true);
+        this.txtVendClienteTelefono.setEditable(true);
+        
+        //botones
+        this.btnVendClienteGuardar.setEnabled(true);
+        //txt blanco
+        this.txtVendClienteDni.setText("");
+        this.txtVendClienteNombre.setText("");
+        this.txtVendClienteApellidos.setText("");
+        this.txtVendClienteTelefono.setText("");
+    }//GEN-LAST:event_btnVendClienteNuevoActionPerformed
+
+    private void btnConfirmarLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarLogActionPerformed
+        //boton confirmar logueo
+        String logueo = this.txtLogin.getText();
+        
+        if(l.logueo(logueo)==1){
+            this.panelLogin.setVisible(false);
+
+            this.panelTitular.setVisible(true);
+            this.panelTitVendedores.setVisible(false);
+            this.panelTitInmuebles.setVisible(false);
+            this.panelTitVentas.setVisible(false);
+
+            this.panelVendedor.setVisible(false);
+            this.panelVendNuevaVenta.setVisible(false);
+            this.panelVendCliente.setVisible(false);
+
+        }else if(l.logueo(logueo)==0){
+            this.panelLogin.setVisible(false);
+
+            this.panelTitular.setVisible(false);
+            this.panelTitVendedores.setVisible(false);
+            this.panelTitInmuebles.setVisible(false);
+            this.panelTitVentas.setVisible(false);
+
+            this.panelVendedor.setVisible(true);
+            this.panelVendNuevaVenta.setVisible(false);
+            this.panelVendCliente.setVisible(false);
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Identificacion incorrecta");
+        }
+        
+        this.lblTitCodEmpleado.setText(logueo);
+    }//GEN-LAST:event_btnConfirmarLogActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1530,6 +1782,7 @@ public class interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConfirmarLog;
     private javax.swing.JButton btnTitInmEliminar;
     private javax.swing.JButton btnTitInmGuardar;
     private javax.swing.JButton btnTitInmModificar;

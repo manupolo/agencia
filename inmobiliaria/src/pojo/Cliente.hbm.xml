@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-nov-2016 13:35:04 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-nov-2016 19:53:02 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pojos.Cliente" table="cliente" catalog="dam44_agencia" optimistic-lock="version">
+    <class name="pojo.Cliente" table="cliente" catalog="dam44_agencia" optimistic-lock="version">
         <id name="idCliente" type="string">
             <column name="idCliente" length="9" />
             <generator class="assigned" />
@@ -21,7 +21,7 @@
             <key>
                 <column name="idCliente" length="9" not-null="true" />
             </key>
-            <one-to-many class="pojos.VentaInmueble" />
+            <one-to-many class="pojo.VentaInmueble" />
         </set>
     </class>
 </hibernate-mapping>
