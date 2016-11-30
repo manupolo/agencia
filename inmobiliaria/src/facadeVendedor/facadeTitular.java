@@ -10,4 +10,7 @@ public class facadeTitular {
     public DefaultTableModel tablaVendedor(){
         return v.tablaVendedor();
     }
+    public void yo(){
+        
+    }
 }
