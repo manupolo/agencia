@@ -1,8 +1,8 @@
 
 package vista;
 
-import facadeVendedor.facadeTitular;
-import facadeVendedor.facadeVendedor;
+import facade.facadeTitular;
+import facade.facadeVendedor;
 import javax.swing.JOptionPane;
 import metodos.login;
 
@@ -70,7 +70,7 @@ public class interfaz extends javax.swing.JFrame {
         txtTitVenNombre = new javax.swing.JTextField();
         txtTitVenDni = new javax.swing.JTextField();
         txtTitVenTelefono = new javax.swing.JTextField();
-        txtTiVentCorreo = new javax.swing.JTextField();
+        txtTitVenCorreo = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnTitVenNuevo = new javax.swing.JButton();
         btnTitVenGuardar = new javax.swing.JButton();
@@ -339,6 +339,11 @@ public class interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaTitVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaTitVendedorMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaTitVendedor);
 
         jLabel1.setText("Código Agencia: ");
@@ -375,7 +380,7 @@ public class interfaz extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtTiVentCorreo))
+                        .addComponent(txtTitVenCorreo))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -409,7 +414,7 @@ public class interfaz extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(txtTitVenTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(txtTiVentCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTitVenCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -417,12 +422,27 @@ public class interfaz extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnTitVenNuevo.setText("Nuevo");
+        btnTitVenNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTitVenNuevoActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnTitVenNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 140, -1));
 
         btnTitVenGuardar.setText("Guardar");
+        btnTitVenGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTitVenGuardarActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnTitVenGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 140, -1));
 
         btnTitVenModificar.setText("Modificar");
+        btnTitVenModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTitVenModificarActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnTitVenModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 140, -1));
 
         btnTitVenSalir.setText("Salir");
@@ -434,6 +454,11 @@ public class interfaz extends javax.swing.JFrame {
         jPanel3.add(btnTitVenSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 140, -1));
 
         btnTitVenEliminar.setText("Eliminar");
+        btnTitVenEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTitVenEliminarActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnTitVenEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 140, -1));
 
         lblTitVendedores.setText("jLabel25");
@@ -1425,6 +1450,25 @@ public class interfaz extends javax.swing.JFrame {
         this.panelVendNuevaVenta.setVisible(false);
         this.panelVendCliente.setVisible(false);
         
+        //Botones
+        this.btnTitVenGuardar.setEnabled(false);
+        this.btnTitVenModificar.setEnabled(false);
+        this.btnTitVenEliminar.setEnabled(false);
+        
+        //txt
+        this.txtTitVenDni.setEditable(false);
+        this.txtTitVenNombre.setEditable(false);
+        this.txtTitVenApellidos.setEditable(false);
+        this.txtTitVenTelefono.setEditable(false);
+        this.txtTitVenCorreo.setEditable(false);
+        
+        //txt blanco
+        this.txtTitVenDni.setText("");
+        this.txtTitVenNombre.setText("");
+        this.txtTitVenApellidos.setText("");
+        this.txtTitVenTelefono.setText("");
+        this.txtTitVenCorreo.setText("");
+        
         tablaTitVendedor.setModel(ft.tablaVendedor());
         
     }//GEN-LAST:event_btnTitVendedoresActionPerformed
@@ -1708,6 +1752,9 @@ public class interfaz extends javax.swing.JFrame {
         
         //botones
         this.btnVendClienteGuardar.setEnabled(true);
+        this.btnVendClienteModificar.setEnabled(false);
+        this.btnVendClienteEliminar.setEnabled(false);
+        
         //txt blanco
         this.txtVendClienteDni.setText("");
         this.txtVendClienteNombre.setText("");
@@ -1730,7 +1777,24 @@ public class interfaz extends javax.swing.JFrame {
             this.panelVendedor.setVisible(false);
             this.panelVendNuevaVenta.setVisible(false);
             this.panelVendCliente.setVisible(false);
-
+            
+            //lbl cod empleado
+            this.lblTitCodEmpleado.setText(logueo);
+            this.lblTitVendedores.setText(logueo);
+            this.lblTitInmuebles.setText(logueo);
+            this.lblTitVentas.setText(logueo);
+            
+            //lbl cod agencia
+            this.lblTitVenCodAgencia.setText(String.valueOf(this.l.codAgencia(logueo)));
+            this.lblTitInmCodAgencia.setText(String.valueOf(this.l.codAgencia(logueo)));
+            this.lblTitVentaCodAgencia.setText(String.valueOf(this.l.codAgencia(logueo)));
+            
+            //lbl nombre agencia
+            this.lblNombreAgencia.setText(this.l.nombreAgencia(logueo));
+            this.lblTitVenNombreAgencia.setText(this.l.nombreAgencia(logueo));
+            this.lblTitInmNombreAgencia.setText(this.l.nombreAgencia(logueo));
+            this.lblTitVentaNombreAgencia.setText(this.l.nombreAgencia(logueo));
+            
         }else if(l.logueo(logueo)==0){
             this.panelLogin.setVisible(false);
 
@@ -1742,13 +1806,181 @@ public class interfaz extends javax.swing.JFrame {
             this.panelVendedor.setVisible(true);
             this.panelVendNuevaVenta.setVisible(false);
             this.panelVendCliente.setVisible(false);
+            
+            //lbl cod empleado
+            this.lblVend.setText(logueo);
+            this.lblVendVenta.setText(logueo);
+            this.lblVendCliente.setText(logueo);
+            
+            //lbl cod agencia
+            this.lblVendVentaCodAgencia.setText(String.valueOf(this.l.codAgencia(logueo)));
+            this.lblVendClienteCodAgencia.setText(String.valueOf(this.l.codAgencia(logueo)));
+            
+            //lbl nombre agencia
+            this.lblNombreAgencia1.setText(this.l.nombreAgencia(logueo));
+            this.lblVendVentaNombreAgencia.setText(this.l.nombreAgencia(logueo));
+            this.lblVendClienteNombreAgencia.setText(this.l.nombreAgencia(logueo));
 
         }else{
             JOptionPane.showMessageDialog(null, "Identificacion incorrecta");
         }
         
-        this.lblTitCodEmpleado.setText(logueo);
+        
     }//GEN-LAST:event_btnConfirmarLogActionPerformed
+
+    private void btnTitVenGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenGuardarActionPerformed
+        //boton guardar vendedor
+        String dni = this.txtTitVenDni.getText();
+        int idAgencia = Integer.parseInt(this.lblTitVenCodAgencia.getText());
+        String nombre = this.txtTitVenNombre.getText();;
+        String apellidos = this.txtTitVenApellidos.getText();;
+        int telefono = Integer.parseInt(this.txtTitVenTelefono.getText());
+        String correo = this.txtTitVenCorreo.getText();
+        
+        if(this.ft.insertarVendedor(dni,idAgencia , nombre, apellidos, telefono, correo)){
+            JOptionPane.showMessageDialog(null, "Vendedor insertado correctamente");
+            this.tablaTitVendedor.setModel(this.ft.tablaVendedor());
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al insertar vendedor");
+        }
+        
+        //txt blanco
+        this.txtTitVenDni.setText("");
+        this.txtTitVenNombre.setText("");
+        this.txtTitVenApellidos.setText("");
+        this.txtTitVenTelefono.setText("");
+        this.txtTitVenCorreo.setText("");
+        
+        //boton enabled
+        this.btnTitVenGuardar.setEnabled(false);
+    }//GEN-LAST:event_btnTitVenGuardarActionPerformed
+
+    private void btnTitVenModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenModificarActionPerformed
+        //boton modificar vendedor
+        
+        String dni = this.txtTitVenDni.getText();
+        int idAgencia = Integer.parseInt(this.lblTitVenCodAgencia.getText());
+        String nombre = this.txtTitVenNombre.getText();;
+        String apellidos = this.txtTitVenApellidos.getText();;
+        int telefono = Integer.parseInt(this.txtTitVenTelefono.getText());
+        String correo = this.txtTitVenCorreo.getText();
+        
+        if(this.ft.modificarVendedor(dni,idAgencia , nombre, apellidos, telefono, correo)){
+            JOptionPane.showMessageDialog(null, "Vendedor modificado correctamente");
+            this.tablaTitVendedor.setModel(this.ft.tablaVendedor());
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al modificar vendedor");
+        }
+        //botones
+        this.btnTitVenEliminar.setEnabled(false);
+        this.btnTitVenModificar.setEnabled(false);
+        
+        //txt
+        this.txtTitVenDni.setEditable(false);
+        this.txtTitVenNombre.setEditable(false);
+        this.txtTitVenApellidos.setEditable(false);
+        this.txtTitVenTelefono.setEditable(false);
+        this.txtTitVenCorreo.setEditable(false);
+        
+        //txt blanco
+        this.txtTitVenDni.setText("");
+        this.txtTitVenNombre.setText("");
+        this.txtTitVenApellidos.setText("");
+        this.txtTitVenTelefono.setText("");
+        this.txtTitVenCorreo.setText("");
+    }//GEN-LAST:event_btnTitVenModificarActionPerformed
+
+    private void btnTitVenEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenEliminarActionPerformed
+        //  Boton eliminar vendedor
+        String dni = this.txtTitVenDni.getText();
+        
+        if(this.ft.eliminarVendedor(dni)){
+            JOptionPane.showMessageDialog(null, "Vendedor eliminado");
+            this.tablaTitVendedor.setModel(this.ft.tablaVendedor());
+        }else{
+            JOptionPane.showMessageDialog(null, "Error al eliminar vendedor");
+        }
+        
+        //Botones
+        this.btnTitVenEliminar.setEnabled(false);
+        this.btnTitVenModificar.setEnabled(false);
+        
+        //txt
+        this.txtTitVenDni.setEditable(false);
+        this.txtTitVenNombre.setEditable(false);
+        this.txtTitVenApellidos.setEditable(false);
+        this.txtTitVenTelefono.setEditable(false);
+        this.txtTitVenCorreo.setEditable(false);
+        
+        //txt blanco
+        this.txtTitVenDni.setText("");
+        this.txtTitVenNombre.setText("");
+        this.txtTitVenApellidos.setText("");
+        this.txtTitVenTelefono.setText("");
+        this.txtTitVenCorreo.setText("");
+        
+    }//GEN-LAST:event_btnTitVenEliminarActionPerformed
+
+    private void tablaTitVendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaTitVendedorMouseClicked
+        //tabla titular vendedores
+        String dni = "";
+        String nombre = "";
+        String apellidos = "";
+        String telefono = "";
+        String correo = "";
+        
+        int fila;
+        
+        fila = this.tablaTitVendedor.rowAtPoint(evt.getPoint());
+             if (fila > -1){                
+                dni = ( String.valueOf( this.tablaTitVendedor.getValueAt(fila, 0) ));
+                nombre = ( String.valueOf( this.tablaTitVendedor.getValueAt(fila, 1) ));
+                apellidos = ( String.valueOf( this.tablaTitVendedor.getValueAt(fila, 2) ));
+                telefono = ( String.valueOf( this.tablaTitVendedor.getValueAt(fila, 3) )); 
+                correo = (String.valueOf( this.tablaTitVendedor.getValueAt(fila, 4)));
+             }
+        
+        //botones
+        this.btnTitVenModificar.setEnabled(true);
+        this.btnTitVenEliminar.setEnabled(true);
+        this.btnTitVenGuardar.setEnabled(false);
+        
+        //txt enabled
+        this.txtTitVenDni.setEditable(false);
+        this.txtTitVenNombre.setEditable(true);
+        this.txtTitVenApellidos.setEditable(true);
+        this.txtTitVenTelefono.setEditable(true);
+        this.txtTitVenCorreo.setEditable(true);
+        
+        //txt variables
+        this.txtTitVenDni.setText(dni);
+        this.txtTitVenNombre.setText(nombre);
+        this.txtTitVenApellidos.setText(apellidos);
+        this.txtTitVenTelefono.setText(telefono);
+        this.txtTitVenCorreo.setText(correo);
+    }//GEN-LAST:event_tablaTitVendedorMouseClicked
+
+    private void btnTitVenNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenNuevoActionPerformed
+        // nuevo vendedor
+        //txt enabled
+        this.txtTitVenDni.setEditable(true);
+        this.txtTitVenNombre.setEditable(true);
+        this.txtTitVenApellidos.setEditable(true);
+        this.txtTitVenTelefono.setEditable(true);
+        this.txtTitVenCorreo.setEditable(true);
+        
+        //botones
+        this.btnTitVenGuardar.setEnabled(true);
+        this.btnTitVenModificar.setEnabled(false);
+        this.btnTitVenEliminar.setEnabled(false);
+        
+        //txt blanco
+        this.txtTitVenDni.setText("");
+        this.txtTitVenNombre.setText("");
+        this.txtTitVenApellidos.setText("");
+        this.txtTitVenTelefono.setText("");
+        this.txtTitVenCorreo.setText("");
+    }//GEN-LAST:event_btnTitVenNuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1908,7 +2140,6 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JTable tablaVendCliente;
     private javax.swing.JTable tablaVendVentas;
     private javax.swing.JTextField txtLogin;
-    private javax.swing.JTextField txtTiVentCorreo;
     private javax.swing.JTextField txtTitInmDireccion;
     private javax.swing.JTextField txtTitInmLicencia;
     private javax.swing.JTextField txtTitInmNumBaños;
@@ -1918,6 +2149,7 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField txtTitInmTipoGas;
     private javax.swing.JTextField txtTitInmUbicacion;
     private javax.swing.JTextField txtTitVenApellidos;
+    private javax.swing.JTextField txtTitVenCorreo;
     private javax.swing.JTextField txtTitVenDni;
     private javax.swing.JTextField txtTitVenNombre;
     private javax.swing.JTextField txtTitVenTelefono;

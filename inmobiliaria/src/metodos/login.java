@@ -54,11 +54,35 @@ public class login {
 
             while(albumesiterator.hasNext()){
 
-            Vendedor vnd=(Vendedor)albumesiterator.next();
+                Vendedor vnd=(Vendedor)albumesiterator.next();
                 Agencia a = vnd.getAgencia();
                 agencia = a.getIdAgencia();
+                
             }
             session.close();
         return agencia;
+    }
+    
+    public String nombreAgencia(String id){
+        String nomAg = "";
+            
+            String c="select v from Vendedor v where idVendedor like '" +id+ "'";
+
+            Session session=HibernateUtil.getSessionFactory().openSession();
+            Query q=session.createQuery(c);
+
+            List results=q.list();
+            Iterator albumesiterator=results.iterator();
+
+            while(albumesiterator.hasNext()){
+
+                Vendedor vnd=(Vendedor)albumesiterator.next();
+                Agencia a = vnd.getAgencia();
+                nomAg = a.getNombre();
+                
+            }
+            session.close();
+            
+        return nomAg;
     }
 }
