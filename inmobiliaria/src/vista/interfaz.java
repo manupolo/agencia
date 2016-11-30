@@ -1,12 +1,14 @@
 
 package vista;
 
-import facadeVendedor.facadeCliente;
+import facadeVendedor.facadeTitular;
+import facadeVendedor.facadeVendedor;
 import javax.swing.JOptionPane;
 import metodos.login;
 
 public class interfaz extends javax.swing.JFrame {
-    facadeCliente fc = new facadeCliente();
+    facadeVendedor fc = new facadeVendedor();
+    facadeTitular ft = new facadeTitular();
     login l = new login();
     
     //25874545F
@@ -1410,6 +1412,8 @@ public class interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTitVentasActionPerformed
 
     private void btnTitVendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVendedoresActionPerformed
+        //Boton Entrar Vendedores
+        
         this.panelLogin.setVisible(false);
         
         this.panelTitular.setVisible(false);
@@ -1421,7 +1425,7 @@ public class interfaz extends javax.swing.JFrame {
         this.panelVendNuevaVenta.setVisible(false);
         this.panelVendCliente.setVisible(false);
         
-        
+        tablaTitVendedor.setModel(ft.tablaVendedor());
         
     }//GEN-LAST:event_btnTitVendedoresActionPerformed
 

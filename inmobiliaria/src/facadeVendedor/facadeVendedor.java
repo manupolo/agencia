@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Manuel
  */
-public class facadeCliente {
+public class facadeVendedor {
     cliente cli = new cliente();
     
     //Crea la tabla cliente
