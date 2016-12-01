@@ -1599,47 +1599,61 @@ public class interfaz extends javax.swing.JFrame {
 
     private void btnTitInmModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmModificarActionPerformed
         //boton modificar inmueble
-        if(this.txtTitInmTipo.getText().equals("Piso")){
-            if(this.ft.modificarPiso(Integer.parseInt(this.txtTitInmIdInmueble.getText()), Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), Integer.parseInt(this.txtTitInmNumHab.getText()), Integer.parseInt(this.txtTitInmNumBaños.getText()), this.txtTitInmTipoGas.getText(), this.txtTitInmUbicacion.getText())){
-            JOptionPane.showMessageDialog(null, "Piso modificado con exito");
+        if(mv.validar(this.txtTitInmSuperficie.getText())){
+            if(mv.validar(this.txtTitInmNumHab.getText())){
+                if(mv.validar(this.txtTitInmNumBaños.getText())){
+                    
+                    if(this.txtTitInmTipo.getText().equals("Piso")){
+                        if(this.ft.modificarPiso(Integer.parseInt(this.txtTitInmIdInmueble.getText()), Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), Integer.parseInt(this.txtTitInmNumHab.getText()), Integer.parseInt(this.txtTitInmNumBaños.getText()), this.txtTitInmTipoGas.getText(), this.txtTitInmUbicacion.getText())){
+                        JOptionPane.showMessageDialog(null, "Piso modificado con exito");
+                        }else{
+                        JOptionPane.showMessageDialog(null, "Error al modificar inmueble");
+                        }
+                    }else if(this.txtTitInmTipo.getText().equals("Local")){
+                        if(this.ft.modificarLocal(Integer.parseInt(this.txtTitInmIdInmueble.getText()), Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), this.txtTitInmLicencia.getText())){
+                        JOptionPane.showMessageDialog(null, "Local modificado con exito");
+                        }else{
+                        JOptionPane.showMessageDialog(null, "Error al modificar inmueble");
+                        }
+                    }
+                    tablaTitInmueble.setModel(ft.tablaInmueble(Integer.parseInt(this.lblTitInmCodAgencia.getText())));
+
+                    //Botones
+                    this.btnTitInmGuardar.setEnabled(false);
+                    this.btnTitInmModificar.setEnabled(false);
+                    this.btnTitInmEliminar.setEnabled(false);
+
+                    //txt
+                    this.txtTitInmDireccion.setEditable(false);
+                    this.txtTitInmPropietario.setEditable(false);
+                    this.txtTitInmSuperficie.setEditable(false);
+                    this.txtTitInmNumHab.setEditable(false);
+                    this.txtTitInmNumBaños.setEditable(false);
+                    this.txtTitInmLicencia.setEditable(false);
+                    this.txtTitInmTipoGas.setEditable(false);
+                    this.txtTitInmUbicacion.setEditable(false);
+
+                    //txt blanco
+                    this.txtTitInmIdInmueble.setText("");
+                    this.txtTitInmDireccion.setText("");
+                    this.txtTitInmTipo.setText("");
+                    this.txtTitInmPropietario.setText("");
+                    this.txtTitInmSuperficie.setText("");
+                    this.txtTitInmNumHab.setText("");
+                    this.txtTitInmNumBaños.setText("");
+                    this.txtTitInmLicencia.setText("");
+                    this.txtTitInmTipoGas.setText("");
+                    this.txtTitInmUbicacion.setText("");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Solo caracteres numericos en numero de baños");
+                }
+                
             }else{
-            JOptionPane.showMessageDialog(null, "Error al modificar inmueble");
+                JOptionPane.showMessageDialog(null, "Solo caracteres numericos en el número de habitaciones");
             }
-        }else if(this.txtTitInmTipo.getText().equals("Local")){
-            if(this.ft.modificarLocal(Integer.parseInt(this.txtTitInmIdInmueble.getText()), Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), this.txtTitInmLicencia.getText())){
-            JOptionPane.showMessageDialog(null, "Local modificado con exito");
-            }else{
-            JOptionPane.showMessageDialog(null, "Error al modificar inmueble");
-            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Solo caracteres  numericos en superficie");
         }
-        tablaTitInmueble.setModel(ft.tablaInmueble(Integer.parseInt(this.lblTitInmCodAgencia.getText())));
-        
-        //Botones
-        this.btnTitInmGuardar.setEnabled(false);
-        this.btnTitInmModificar.setEnabled(false);
-        this.btnTitInmEliminar.setEnabled(false);
-        
-        //txt
-        this.txtTitInmDireccion.setEditable(false);
-        this.txtTitInmPropietario.setEditable(false);
-        this.txtTitInmSuperficie.setEditable(false);
-        this.txtTitInmNumHab.setEditable(false);
-        this.txtTitInmNumBaños.setEditable(false);
-        this.txtTitInmLicencia.setEditable(false);
-        this.txtTitInmTipoGas.setEditable(false);
-        this.txtTitInmUbicacion.setEditable(false);
-        
-        //txt blanco
-        this.txtTitInmIdInmueble.setText("");
-        this.txtTitInmDireccion.setText("");
-        this.txtTitInmTipo.setText("");
-        this.txtTitInmPropietario.setText("");
-        this.txtTitInmSuperficie.setText("");
-        this.txtTitInmNumHab.setText("");
-        this.txtTitInmNumBaños.setText("");
-        this.txtTitInmLicencia.setText("");
-        this.txtTitInmTipoGas.setText("");
-        this.txtTitInmUbicacion.setText("");
     }//GEN-LAST:event_btnTitInmModificarActionPerformed
 
     private void btnTitVenSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenSalirActionPerformed
@@ -2023,37 +2037,51 @@ public class interfaz extends javax.swing.JFrame {
 
     private void btnTitVenModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenModificarActionPerformed
         //boton modificar vendedor
-        int idAgen = Integer.parseInt(this.lblTitVenCodAgencia.getText());
-        String dni = this.txtTitVenDni.getText();
-        int idAgencia = Integer.parseInt(this.lblTitVenCodAgencia.getText());
-        String nombre = this.txtTitVenNombre.getText();;
-        String apellidos = this.txtTitVenApellidos.getText();;
-        int telefono = Integer.parseInt(this.txtTitVenTelefono.getText());
-        String correo = this.txtTitVenCorreo.getText();
         
-        if(this.ft.modificarVendedor(dni,idAgencia , nombre, apellidos, telefono, correo)){
-            JOptionPane.showMessageDialog(null, "Vendedor modificado correctamente");
-            this.tablaTitVendedor.setModel(this.ft.tablaVendedor(idAgen));
+        
+        if(mv.validar(this.txtTitVenTelefono.getText())){
+            
+            if(this.txtTitVenTelefono.getText().length() < 10 && this.txtTitVenTelefono.getText().length() >8){
+                
+                int idAgen = Integer.parseInt(this.lblTitVenCodAgencia.getText());
+                String dni = this.txtTitVenDni.getText();
+                int idAgencia = Integer.parseInt(this.lblTitVenCodAgencia.getText());
+                String nombre = this.txtTitVenNombre.getText();;
+                String apellidos = this.txtTitVenApellidos.getText();;
+                int telefono = Integer.parseInt(this.txtTitVenTelefono.getText());
+                String correo = this.txtTitVenCorreo.getText();
+                
+                if(this.ft.modificarVendedor(dni,idAgencia , nombre, apellidos, telefono, correo)){
+                    JOptionPane.showMessageDialog(null, "Vendedor modificado correctamente");
+                    this.tablaTitVendedor.setModel(this.ft.tablaVendedor(idAgen));
+                }else{
+                    JOptionPane.showMessageDialog(null, "Error al modificar vendedor");
+                }
+                //botones
+                this.btnTitVenEliminar.setEnabled(false);
+                this.btnTitVenModificar.setEnabled(false);
+
+                //txt
+                this.txtTitVenDni.setEditable(false);
+                this.txtTitVenNombre.setEditable(false);
+                this.txtTitVenApellidos.setEditable(false);
+                this.txtTitVenTelefono.setEditable(false);
+                this.txtTitVenCorreo.setEditable(false);
+
+                //txt blanco
+                this.txtTitVenDni.setText("");
+                this.txtTitVenNombre.setText("");
+                this.txtTitVenApellidos.setText("");
+                this.txtTitVenTelefono.setText("");
+                this.txtTitVenCorreo.setText("");
+            }else{
+                JOptionPane.showMessageDialog(null, "El telefono debe contener 9 caracteres");
+            }
+            
         }else{
-            JOptionPane.showMessageDialog(null, "Error al modificar vendedor");
+            JOptionPane.showMessageDialog(null, "El telefono solo puede contener caracteres numericos");
         }
-        //botones
-        this.btnTitVenEliminar.setEnabled(false);
-        this.btnTitVenModificar.setEnabled(false);
         
-        //txt
-        this.txtTitVenDni.setEditable(false);
-        this.txtTitVenNombre.setEditable(false);
-        this.txtTitVenApellidos.setEditable(false);
-        this.txtTitVenTelefono.setEditable(false);
-        this.txtTitVenCorreo.setEditable(false);
-        
-        //txt blanco
-        this.txtTitVenDni.setText("");
-        this.txtTitVenNombre.setText("");
-        this.txtTitVenApellidos.setText("");
-        this.txtTitVenTelefono.setText("");
-        this.txtTitVenCorreo.setText("");
     }//GEN-LAST:event_btnTitVenModificarActionPerformed
 
     private void btnTitVenEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenEliminarActionPerformed
@@ -2319,48 +2347,65 @@ public class interfaz extends javax.swing.JFrame {
 
     private void btnTitInmGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmGuardarActionPerformed
         //Guardar inmueble
+        if(mv.validar(this.txtTitInmSuperficie.getText())){
+            if(mv.validar(this.txtTitInmNumHab.getText())){
+                if(mv.validar(this.txtTitInmNumBaños.getText())){
+                    
+                    if(this.txtTitInmTipo.getText().equals("Piso")){
+                        if(this.ft.insertarPiso(Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), Integer.parseInt(this.txtTitInmNumHab.getText()), Integer.parseInt(this.txtTitInmNumBaños.getText()), this.txtTitInmTipoGas.getText(), this.txtTitInmUbicacion.getText())){
+                        JOptionPane.showMessageDialog(null, "Piso insertado con exito");
+                        }else{
+                        JOptionPane.showMessageDialog(null, "Error al insertar inmueble");
+                        }
+                    }else if(this.txtTitInmTipo.getText().equals("Local")){
+                        if(this.ft.insertarLocal(Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), this.txtTitInmLicencia.getText())){
+                        JOptionPane.showMessageDialog(null, "Local insertado con exito");
+                        }else{
+                        JOptionPane.showMessageDialog(null, "Error al insertar inmueble");
+                        }
+                    }
+                    tablaTitInmueble.setModel(ft.tablaInmueble(Integer.parseInt(this.lblTitInmCodAgencia.getText())));
+
+                    //Botones
+                    this.btnTitInmGuardar.setEnabled(false);
+                    this.btnTitInmModificar.setEnabled(false);
+                    this.btnTitInmEliminar.setEnabled(false);
+
+                    //txt
+                    this.txtTitInmDireccion.setEditable(false);
+                    this.txtTitInmPropietario.setEditable(false);
+                    this.txtTitInmSuperficie.setEditable(false);
+                    this.txtTitInmNumHab.setEditable(false);
+                    this.txtTitInmNumBaños.setEditable(false);
+                    this.txtTitInmLicencia.setEditable(false);
+                    this.txtTitInmTipoGas.setEditable(false);
+                    this.txtTitInmUbicacion.setEditable(false);
+
+                    //txt blanco
+                    this.txtTitInmIdInmueble.setText("");
+                    this.txtTitInmDireccion.setText("");
+                    this.txtTitInmTipo.setText("");
+                    this.txtTitInmPropietario.setText("");
+                    this.txtTitInmSuperficie.setText("");
+                    this.txtTitInmNumHab.setText("");
+                    this.txtTitInmNumBaños.setText("");
+                    this.txtTitInmLicencia.setText("");
+                    this.txtTitInmTipoGas.setText("");
+                    this.txtTitInmUbicacion.setText("");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Solo caracteres numericos en numero de baños");
+                }
                 
-        if(this.txtTitInmTipo.getText().equals("Piso")){
-            if(this.ft.insertarPiso(Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), Integer.parseInt(this.txtTitInmNumHab.getText()), Integer.parseInt(this.txtTitInmNumBaños.getText()), this.txtTitInmTipoGas.getText(), this.txtTitInmUbicacion.getText())){
-            JOptionPane.showMessageDialog(null, "Piso insertado con exito");
             }else{
-            JOptionPane.showMessageDialog(null, "Error al insertar inmueble");
+                JOptionPane.showMessageDialog(null, "Solo caracteres numericos en el número de habitaciones");
             }
-        }else if(this.txtTitInmTipo.getText().equals("Local")){
-            if(this.ft.insertarLocal(Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), this.txtTitInmLicencia.getText())){
-            JOptionPane.showMessageDialog(null, "Local insertado con exito");
-            }else{
-            JOptionPane.showMessageDialog(null, "Error al insertar inmueble");
-            }
+            
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Solo caracteres  numericos en superficie");
         }
-        tablaTitInmueble.setModel(ft.tablaInmueble(Integer.parseInt(this.lblTitInmCodAgencia.getText())));
         
-        //Botones
-        this.btnTitInmGuardar.setEnabled(false);
-        this.btnTitInmModificar.setEnabled(false);
-        this.btnTitInmEliminar.setEnabled(false);
         
-        //txt
-        this.txtTitInmDireccion.setEditable(false);
-        this.txtTitInmPropietario.setEditable(false);
-        this.txtTitInmSuperficie.setEditable(false);
-        this.txtTitInmNumHab.setEditable(false);
-        this.txtTitInmNumBaños.setEditable(false);
-        this.txtTitInmLicencia.setEditable(false);
-        this.txtTitInmTipoGas.setEditable(false);
-        this.txtTitInmUbicacion.setEditable(false);
-        
-        //txt blanco
-        this.txtTitInmIdInmueble.setText("");
-        this.txtTitInmDireccion.setText("");
-        this.txtTitInmTipo.setText("");
-        this.txtTitInmPropietario.setText("");
-        this.txtTitInmSuperficie.setText("");
-        this.txtTitInmNumHab.setText("");
-        this.txtTitInmNumBaños.setText("");
-        this.txtTitInmLicencia.setText("");
-        this.txtTitInmTipoGas.setText("");
-        this.txtTitInmUbicacion.setText("");
     }//GEN-LAST:event_btnTitInmGuardarActionPerformed
 
     private void btnTitInmEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmEliminarActionPerformed
