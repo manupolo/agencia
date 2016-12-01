@@ -14,7 +14,7 @@ import pojo.Vendedor;
 
 public class vendedor {
     
-    public DefaultTableModel tablaVendedor() {
+    public DefaultTableModel tablaVendedor(int idAgencia) {
         Session session = null;
         DefaultTableModel m = new DefaultTableModel() {
            
@@ -24,10 +24,10 @@ public class vendedor {
         };
         session = HibernateUtil.getSessionFactory().openSession();
         String[] columns = {"idVendedor", "Nombre", "Apellidos", "Telefono", "Correo"}; 
-        Query createQuery = session.createQuery("select count(idVendedor) from Vendedor where titular like 0"); 
+        Query createQuery = session.createQuery("select count(idVendedor) from Vendedor where titular like 0 and idAgencia like " +idAgencia); 
         
         int c =  Integer.parseInt(createQuery.uniqueResult().toString());
-        Query createQuery2 = session.createQuery("from Vendedor where titular like 0");
+        Query createQuery2 = session.createQuery("from Vendedor where titular like 0 and idAgencia like " +idAgencia);
         
         Object data[][] = new Object[c][5];
         List rs = createQuery2.list();

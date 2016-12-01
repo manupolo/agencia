@@ -5,11 +5,13 @@ import facade.facadeTitular;
 import facade.facadeVendedor;
 import javax.swing.JOptionPane;
 import metodos.login;
+import metodos.metodosValidar;
 
 public class interfaz extends javax.swing.JFrame {
-    facadeVendedor fc = new facadeVendedor();
+    facadeVendedor fv = new facadeVendedor();
     facadeTitular ft = new facadeTitular();
     login l = new login();
+    metodosValidar mv = new metodosValidar();
     
     //25874545F
     
@@ -102,6 +104,10 @@ public class interfaz extends javax.swing.JFrame {
         txtTitInmNumBaños = new javax.swing.JTextField();
         txtTitInmTipoGas = new javax.swing.JTextField();
         txtTitInmUbicacion = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        txtTitInmTipo = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        txtTitInmIdInmueble = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         btnTitInmNuevoLocal = new javax.swing.JButton();
         btnTitInmGuardar = new javax.swing.JButton();
@@ -191,6 +197,9 @@ public class interfaz extends javax.swing.JFrame {
         btnVendClienteNuevo = new javax.swing.JButton();
         lblVendCliente = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        mnuCerrarSesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -443,7 +452,7 @@ public class interfaz extends javax.swing.JFrame {
                 btnTitVenModificarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnTitVenModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 140, -1));
+        jPanel3.add(btnTitVenModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 140, -1));
 
         btnTitVenSalir.setText("Salir");
         btnTitVenSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -451,7 +460,7 @@ public class interfaz extends javax.swing.JFrame {
                 btnTitVenSalirActionPerformed(evt);
             }
         });
-        jPanel3.add(btnTitVenSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 140, -1));
+        jPanel3.add(btnTitVenSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 140, -1));
 
         btnTitVenEliminar.setText("Eliminar");
         btnTitVenEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -459,7 +468,7 @@ public class interfaz extends javax.swing.JFrame {
                 btnTitVenEliminarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnTitVenEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 140, -1));
+        jPanel3.add(btnTitVenEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 140, -1));
 
         lblTitVendedores.setText("jLabel25");
 
@@ -471,28 +480,34 @@ public class interfaz extends javax.swing.JFrame {
             panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitVendedoresLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel27)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTitVendedores)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 740, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(6, 6, 6)
-                .addComponent(lblTitVenCodAgencia)
+                .addGroup(panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelTitVendedoresLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelTitVendedoresLayout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTitVendedores)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 760, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(6, 6, 6)
+                        .addComponent(lblTitVenCodAgencia)))
                 .addContainerGap())
             .addGroup(panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelTitVendedoresLayout.createSequentialGroup()
                     .addGap(2, 2, 2)
                     .addGroup(panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblTitVenNombreAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelTitVendedoresLayout.createSequentialGroup()
+                            .addGroup(panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblTitVenNombreAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelTitVendedoresLayout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(18, 18, 18))
                         .addGroup(panelTitVendedoresLayout.createSequentialGroup()
                             .addGap(10, 10, 10)
-                            .addGroup(panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panelTitVendedoresLayout.createSequentialGroup()
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(62, 62, 62)
-                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 920, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(18, 18, 18)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1008, Short.MAX_VALUE)
+                            .addContainerGap()))))
         );
         panelTitVendedoresLayout.setVerticalGroup(
             panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -504,17 +519,15 @@ public class interfaz extends javax.swing.JFrame {
                         .addComponent(lblTitVendedores))
                     .addComponent(jLabel1)
                     .addComponent(lblTitVenCodAgencia))
-                .addContainerGap(525, Short.MAX_VALUE))
+                .addGap(121, 121, 121)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(280, Short.MAX_VALUE))
             .addGroup(panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelTitVendedoresLayout.createSequentialGroup()
                     .addGap(38, 38, 38)
                     .addComponent(lblTitVenNombreAgencia)
                     .addGap(60, 60, 60)
-                    .addGroup(panelTitVendedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(panelTitVendedoresLayout.createSequentialGroup()
-                            .addGap(5, 5, 5)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(38, 38, 38)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(17, Short.MAX_VALUE)))
@@ -539,6 +552,11 @@ public class interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaTitInmueble.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaTitInmuebleMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tablaTitInmueble);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Detalles del Inmueble"));
@@ -559,65 +577,91 @@ public class interfaz extends javax.swing.JFrame {
 
         jLabel15.setText("Ubicación:");
 
+        jLabel25.setText("Tipo:");
+
+        txtTitInmTipo.setEditable(false);
+
+        jLabel26.setText("Id Inmueble:");
+
+        txtTitInmIdInmueble.setEditable(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addComponent(jLabel8))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTitInmLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTitInmSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTitInmDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTitInmPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTitInmSuperficie)
+                    .addComponent(txtTitInmDireccion)
+                    .addComponent(txtTitInmPropietario)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtTitInmIdInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTitInmTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(jLabel12)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel15))
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTitInmUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTitInmTipoGas, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTitInmNumBaños, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTitInmNumHab, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtTitInmNumHab, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTitInmNumBaños, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                        .addGap(64, 64, 64))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtTitInmLicencia, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTitInmTipoGas, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTitInmUbicacion))
+                        .addGap(43, 43, 43))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtTitInmDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26)
+                    .addComponent(txtTitInmIdInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25)
+                    .addComponent(txtTitInmTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
-                    .addComponent(txtTitInmNumHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtTitInmPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTitInmNumHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
                     .addComponent(txtTitInmNumBaños, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtTitInmSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtTitInmDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
                     .addComponent(txtTitInmTipoGas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(txtTitInmLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtTitInmPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15)
                     .addComponent(txtTitInmUbicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(txtTitInmSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(txtTitInmLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -625,9 +669,19 @@ public class interfaz extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnTitInmNuevoLocal.setText("Nuevo Local");
+        btnTitInmNuevoLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTitInmNuevoLocalActionPerformed(evt);
+            }
+        });
         jPanel4.add(btnTitInmNuevoLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 180, -1));
 
         btnTitInmGuardar.setText("Guardar");
+        btnTitInmGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTitInmGuardarActionPerformed(evt);
+            }
+        });
         jPanel4.add(btnTitInmGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 180, -1));
 
         btnTitInmModificar.setText("Modificar");
@@ -647,9 +701,19 @@ public class interfaz extends javax.swing.JFrame {
         jPanel4.add(btnTitInmSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 180, -1));
 
         btnTitInmEliminar.setText("Eliminar");
+        btnTitInmEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTitInmEliminarActionPerformed(evt);
+            }
+        });
         jPanel4.add(btnTitInmEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 180, -1));
 
         btnTitInmNuevoPiso.setText("Nuevo Piso");
+        btnTitInmNuevoPiso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTitInmNuevoPisoActionPerformed(evt);
+            }
+        });
         jPanel4.add(btnTitInmNuevoPiso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 180, -1));
 
         lblTitInmuebles.setText("jLabel25");
@@ -660,14 +724,14 @@ public class interfaz extends javax.swing.JFrame {
         panelTitInmuebles.setLayout(panelTitInmueblesLayout);
         panelTitInmueblesLayout.setHorizontalGroup(
             panelTitInmueblesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitInmNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblTitInmNombreAgencia, javax.swing.GroupLayout.DEFAULT_SIZE, 1010, Short.MAX_VALUE)
             .addGroup(panelTitInmueblesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelTitInmueblesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(panelTitInmueblesLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitInmueblesLayout.createSequentialGroup()
                         .addComponent(jLabel43)
@@ -844,9 +908,8 @@ public class interfaz extends javax.swing.JFrame {
                     .addComponent(jScrollPane3)
                     .addGroup(panelTitVentasLayout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitVentasLayout.createSequentialGroup()
                         .addComponent(jLabel29)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1337,6 +1400,20 @@ public class interfaz extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jMenu1.setText("File");
+
+        mnuCerrarSesion.setText("Cerrar Sesión");
+        mnuCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuCerrarSesionActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuCerrarSesion);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1438,6 +1515,7 @@ public class interfaz extends javax.swing.JFrame {
 
     private void btnTitVendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVendedoresActionPerformed
         //Boton Entrar Vendedores
+        int idAgen = Integer.parseInt(this.lblTitVenCodAgencia.getText());
         
         this.panelLogin.setVisible(false);
         
@@ -1469,11 +1547,14 @@ public class interfaz extends javax.swing.JFrame {
         this.txtTitVenTelefono.setText("");
         this.txtTitVenCorreo.setText("");
         
-        tablaTitVendedor.setModel(ft.tablaVendedor());
+        tablaTitVendedor.setModel(ft.tablaVendedor(idAgen));
         
     }//GEN-LAST:event_btnTitVendedoresActionPerformed
 
     private void btnTitInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmueblesActionPerformed
+        //boton entrar inmueble
+        int idAgen = Integer.parseInt(this.lblTitVenCodAgencia.getText());
+        
         this.panelLogin.setVisible(false);
         
         this.panelTitular.setVisible(false);
@@ -1484,10 +1565,81 @@ public class interfaz extends javax.swing.JFrame {
         this.panelVendedor.setVisible(false);
         this.panelVendNuevaVenta.setVisible(false);
         this.panelVendCliente.setVisible(false);
+        
+        //Botones
+        this.btnTitInmGuardar.setEnabled(false);
+        this.btnTitInmModificar.setEnabled(false);
+        this.btnTitInmEliminar.setEnabled(false);
+        
+        //txt
+        this.txtTitInmDireccion.setEditable(false);
+        this.txtTitInmPropietario.setEditable(false);
+        this.txtTitInmSuperficie.setEditable(false);
+        this.txtTitInmNumHab.setEditable(false);
+        this.txtTitInmNumBaños.setEditable(false);
+        this.txtTitInmLicencia.setEditable(false);
+        this.txtTitInmTipoGas.setEditable(false);
+        this.txtTitInmUbicacion.setEditable(false);
+        
+        //txt blanco
+        this.txtTitInmIdInmueble.setText("");
+        this.txtTitInmDireccion.setText("");
+        this.txtTitInmTipo.setText("");
+        this.txtTitInmPropietario.setText("");
+        this.txtTitInmSuperficie.setText("");
+        this.txtTitInmNumHab.setText("");
+        this.txtTitInmNumBaños.setText("");
+        this.txtTitInmLicencia.setText("");
+        this.txtTitInmTipoGas.setText("");
+        this.txtTitInmUbicacion.setText("");
+        
+        //tabla
+        tablaTitInmueble.setModel(ft.tablaInmueble(idAgen));
     }//GEN-LAST:event_btnTitInmueblesActionPerformed
 
     private void btnTitInmModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmModificarActionPerformed
+        //boton modificar inmueble
+        if(this.txtTitInmTipo.getText().equals("Piso")){
+            if(this.ft.modificarPiso(Integer.parseInt(this.txtTitInmIdInmueble.getText()), Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), Integer.parseInt(this.txtTitInmNumHab.getText()), Integer.parseInt(this.txtTitInmNumBaños.getText()), this.txtTitInmTipoGas.getText(), this.txtTitInmUbicacion.getText())){
+            JOptionPane.showMessageDialog(null, "Piso modificado con exito");
+            }else{
+            JOptionPane.showMessageDialog(null, "Error al modificar inmueble");
+            }
+        }else if(this.txtTitInmTipo.getText().equals("Local")){
+            if(this.ft.modificarLocal(Integer.parseInt(this.txtTitInmIdInmueble.getText()), Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), this.txtTitInmLicencia.getText())){
+            JOptionPane.showMessageDialog(null, "Local modificado con exito");
+            }else{
+            JOptionPane.showMessageDialog(null, "Error al modificar inmueble");
+            }
+        }
+        tablaTitInmueble.setModel(ft.tablaInmueble(Integer.parseInt(this.lblTitInmCodAgencia.getText())));
         
+        //Botones
+        this.btnTitInmGuardar.setEnabled(false);
+        this.btnTitInmModificar.setEnabled(false);
+        this.btnTitInmEliminar.setEnabled(false);
+        
+        //txt
+        this.txtTitInmDireccion.setEditable(false);
+        this.txtTitInmPropietario.setEditable(false);
+        this.txtTitInmSuperficie.setEditable(false);
+        this.txtTitInmNumHab.setEditable(false);
+        this.txtTitInmNumBaños.setEditable(false);
+        this.txtTitInmLicencia.setEditable(false);
+        this.txtTitInmTipoGas.setEditable(false);
+        this.txtTitInmUbicacion.setEditable(false);
+        
+        //txt blanco
+        this.txtTitInmIdInmueble.setText("");
+        this.txtTitInmDireccion.setText("");
+        this.txtTitInmTipo.setText("");
+        this.txtTitInmPropietario.setText("");
+        this.txtTitInmSuperficie.setText("");
+        this.txtTitInmNumHab.setText("");
+        this.txtTitInmNumBaños.setText("");
+        this.txtTitInmLicencia.setText("");
+        this.txtTitInmTipoGas.setText("");
+        this.txtTitInmUbicacion.setText("");
     }//GEN-LAST:event_btnTitInmModificarActionPerformed
 
     private void btnTitVenSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenSalirActionPerformed
@@ -1592,7 +1744,7 @@ public class interfaz extends javax.swing.JFrame {
         this.txtVendClienteTelefono.setText("");
         
         //tabla
-        tablaVendCliente.setModel(fc.tablaCliente());
+        tablaVendCliente.setModel(fv.tablaCliente());
     }//GEN-LAST:event_btnVendClientesActionPerformed
 
     private void btnVendClienteSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendClienteSalirActionPerformed
@@ -1655,13 +1807,13 @@ public class interfaz extends javax.swing.JFrame {
         String apellidos = txtVendClienteApellidos.getText();
         int telefono = Integer.parseInt(txtVendClienteTelefono.getText());
         
-        if(fc.insertarCliente(dni, nombre, apellidos, telefono)){
+        if(fv.insertarCliente(dni, nombre, apellidos, telefono)){
             JOptionPane.showMessageDialog(null, "Cliente insertado.");
         }else{
             JOptionPane.showMessageDialog(null, "Error al insertar cliente");
         }
         
-        tablaVendCliente.setModel(fc.tablaCliente());
+        tablaVendCliente.setModel(fv.tablaCliente());
         
         //txt blanco
         this.txtVendClienteDni.setText("");
@@ -1682,13 +1834,13 @@ public class interfaz extends javax.swing.JFrame {
         String apellidos = txtVendClienteApellidos.getText();
         int telefono = Integer.parseInt(txtVendClienteTelefono.getText());
         
-        if(fc.modificarCliente(dni, nombre, apellidos, telefono)){
+        if(fv.modificarCliente(dni, nombre, apellidos, telefono)){
             JOptionPane.showMessageDialog(null, "Cliente modificado.");
         }else{
             JOptionPane.showMessageDialog(null, "Error al modificar cliente");
         }
         
-        tablaVendCliente.setModel(fc.tablaCliente());
+        tablaVendCliente.setModel(fv.tablaCliente());
         
         //Botones
         this.btnVendClienteGuardar.setEnabled(false);
@@ -1716,13 +1868,13 @@ public class interfaz extends javax.swing.JFrame {
         String apellidos = txtVendClienteApellidos.getText();
         int telefono = Integer.parseInt(txtVendClienteTelefono.getText());
         
-        if(fc.eliminarCliente(dni, nombre, apellidos, telefono)){
+        if(fv.eliminarCliente(dni, nombre, apellidos, telefono)){
             JOptionPane.showMessageDialog(null, "Cliente eliminado.");
         }else{
             JOptionPane.showMessageDialog(null, "Error al eliminar cliente");
         }
         
-        tablaVendCliente.setModel(fc.tablaCliente());
+        tablaVendCliente.setModel(fv.tablaCliente());
         
         //Botones
         this.btnVendClienteGuardar.setEnabled(false);
@@ -1830,34 +1982,48 @@ public class interfaz extends javax.swing.JFrame {
 
     private void btnTitVenGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenGuardarActionPerformed
         //boton guardar vendedor
-        String dni = this.txtTitVenDni.getText();
-        int idAgencia = Integer.parseInt(this.lblTitVenCodAgencia.getText());
-        String nombre = this.txtTitVenNombre.getText();;
-        String apellidos = this.txtTitVenApellidos.getText();;
-        int telefono = Integer.parseInt(this.txtTitVenTelefono.getText());
-        String correo = this.txtTitVenCorreo.getText();
+        //Metodo para que solo se puedan introducir numeros en telefono
+        if(mv.validar(this.txtTitVenTelefono.getText())){
+            //9 caracteres en telefono
+            if(this.txtTitVenTelefono.getText().length() < 10 && this.txtTitVenTelefono.getText().length() > 8){
+                int idAgen = Integer.parseInt(this.lblTitVenCodAgencia.getText());
         
-        if(this.ft.insertarVendedor(dni,idAgencia , nombre, apellidos, telefono, correo)){
-            JOptionPane.showMessageDialog(null, "Vendedor insertado correctamente");
-            this.tablaTitVendedor.setModel(this.ft.tablaVendedor());
+                String dni = this.txtTitVenDni.getText();
+                int idAgencia = Integer.parseInt(this.lblTitVenCodAgencia.getText());
+                String nombre = this.txtTitVenNombre.getText();;
+                String apellidos = this.txtTitVenApellidos.getText();;
+                int telefono = Integer.parseInt(this.txtTitVenTelefono.getText());
+                String correo = this.txtTitVenCorreo.getText();
+
+                if(this.ft.insertarVendedor(dni,idAgencia , nombre, apellidos, telefono, correo)){
+                    JOptionPane.showMessageDialog(null, "Vendedor insertado correctamente");
+                    this.tablaTitVendedor.setModel(this.ft.tablaVendedor(idAgen));
+                }else{
+                    JOptionPane.showMessageDialog(null, "Error al insertar vendedor");
+                }
+
+                //txt blanco
+                this.txtTitVenDni.setText("");
+                this.txtTitVenNombre.setText("");
+                this.txtTitVenApellidos.setText("");
+                this.txtTitVenTelefono.setText("");
+                this.txtTitVenCorreo.setText("");
+
+                //boton enabled
+                this.btnTitVenGuardar.setEnabled(false);
+            }else{
+                JOptionPane.showMessageDialog(null, "El telefono debe contener 9 caracteres");
+            }
+            
         }else{
-            JOptionPane.showMessageDialog(null, "Error al insertar vendedor");
+            JOptionPane.showMessageDialog(null, "Solo caracteres numericos en telefono");
         }
         
-        //txt blanco
-        this.txtTitVenDni.setText("");
-        this.txtTitVenNombre.setText("");
-        this.txtTitVenApellidos.setText("");
-        this.txtTitVenTelefono.setText("");
-        this.txtTitVenCorreo.setText("");
-        
-        //boton enabled
-        this.btnTitVenGuardar.setEnabled(false);
     }//GEN-LAST:event_btnTitVenGuardarActionPerformed
 
     private void btnTitVenModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenModificarActionPerformed
         //boton modificar vendedor
-        
+        int idAgen = Integer.parseInt(this.lblTitVenCodAgencia.getText());
         String dni = this.txtTitVenDni.getText();
         int idAgencia = Integer.parseInt(this.lblTitVenCodAgencia.getText());
         String nombre = this.txtTitVenNombre.getText();;
@@ -1867,7 +2033,7 @@ public class interfaz extends javax.swing.JFrame {
         
         if(this.ft.modificarVendedor(dni,idAgencia , nombre, apellidos, telefono, correo)){
             JOptionPane.showMessageDialog(null, "Vendedor modificado correctamente");
-            this.tablaTitVendedor.setModel(this.ft.tablaVendedor());
+            this.tablaTitVendedor.setModel(this.ft.tablaVendedor(idAgen));
         }else{
             JOptionPane.showMessageDialog(null, "Error al modificar vendedor");
         }
@@ -1892,11 +2058,12 @@ public class interfaz extends javax.swing.JFrame {
 
     private void btnTitVenEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVenEliminarActionPerformed
         //  Boton eliminar vendedor
+        int idAgen = Integer.parseInt(this.lblTitVenCodAgencia.getText());
         String dni = this.txtTitVenDni.getText();
         
         if(this.ft.eliminarVendedor(dni)){
             JOptionPane.showMessageDialog(null, "Vendedor eliminado");
-            this.tablaTitVendedor.setModel(this.ft.tablaVendedor());
+            this.tablaTitVendedor.setModel(this.ft.tablaVendedor(idAgen));
         }else{
             JOptionPane.showMessageDialog(null, "Error al eliminar vendedor");
         }
@@ -1982,6 +2149,248 @@ public class interfaz extends javax.swing.JFrame {
         this.txtTitVenCorreo.setText("");
     }//GEN-LAST:event_btnTitVenNuevoActionPerformed
 
+    private void tablaTitInmuebleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaTitInmuebleMouseClicked
+        //tabla inmuebles
+        String idInmueble = "";
+        String direccion = "";
+        String tipo = "";
+        String propietario = "";
+        String superficie = "";
+        String habitaciones = "";
+        String baños = ""; 
+        String gas = ""; 
+        String ubicacion = ""; 
+        String licencia = "";
+        
+        int fila;
+        
+        fila = this.tablaTitInmueble.rowAtPoint(evt.getPoint());
+             if (fila > -1){                
+                idInmueble = ( String.valueOf( this.tablaTitInmueble.getValueAt(fila, 0) ));
+                direccion = ( String.valueOf( this.tablaTitInmueble.getValueAt(fila, 1) ));
+                tipo = ( String.valueOf( this.tablaTitInmueble.getValueAt(fila, 2) ));
+                propietario = ( String.valueOf( this.tablaTitInmueble.getValueAt(fila, 4) )); 
+                superficie = (String.valueOf( this.tablaTitInmueble.getValueAt(fila, 5)));
+                habitaciones = ( String.valueOf( this.tablaTitInmueble.getValueAt(fila, 6) ));
+                baños = ( String.valueOf( this.tablaTitInmueble.getValueAt(fila, 7) ));
+                gas = ( String.valueOf( this.tablaTitInmueble.getValueAt(fila, 8) ));
+                ubicacion = ( String.valueOf( this.tablaTitInmueble.getValueAt(fila, 9) )); 
+                licencia = (String.valueOf( this.tablaTitInmueble.getValueAt(fila, 10)));
+             }
+        
+             //botones
+            this.btnTitInmModificar.setEnabled(true);
+            this.btnTitInmEliminar.setEnabled(true);
+            this.btnTitInmGuardar.setEnabled(false);
+
+        if(tipo.equals("Piso")){
+            
+            //txt enabled
+            this.txtTitInmDireccion.setEditable(true);
+            this.txtTitInmPropietario.setEditable(true);
+            this.txtTitInmSuperficie.setEditable(true);
+            this.txtTitInmNumHab.setEditable(true);
+            this.txtTitInmNumBaños.setEditable(true);
+            this.txtTitInmLicencia.setEditable(false);
+            this.txtTitInmTipoGas.setEditable(true);
+            this.txtTitInmUbicacion.setEditable(true);
+            
+            //txt variables
+            this.txtTitInmIdInmueble.setText(idInmueble);
+            this.txtTitInmDireccion.setText(direccion);
+            this.txtTitInmTipo.setText(tipo);
+            this.txtTitInmPropietario.setText(propietario);
+            this.txtTitInmSuperficie.setText(superficie);
+            this.txtTitInmNumHab.setText(habitaciones);
+            this.txtTitInmNumBaños.setText(baños);
+            this.txtTitInmLicencia.setText("");
+            this.txtTitInmTipoGas.setText(gas);
+            this.txtTitInmUbicacion.setText(ubicacion);
+            
+        }else if(tipo.equals("Local")){
+            
+            //txt enabled
+            this.txtTitInmDireccion.setEditable(true);
+            this.txtTitInmPropietario.setEditable(true);
+            this.txtTitInmSuperficie.setEditable(true);
+            this.txtTitInmNumHab.setEditable(false);
+            this.txtTitInmNumBaños.setEditable(false);
+            this.txtTitInmLicencia.setEditable(true);
+            this.txtTitInmTipoGas.setEditable(false);
+            this.txtTitInmUbicacion.setEditable(false);
+            
+            //txt variables
+            this.txtTitInmIdInmueble.setText(idInmueble);
+            this.txtTitInmDireccion.setText(direccion);
+            this.txtTitInmTipo.setText(tipo);
+            this.txtTitInmPropietario.setText(propietario);
+            this.txtTitInmSuperficie.setText(superficie);
+            this.txtTitInmNumHab.setText("");
+            this.txtTitInmNumBaños.setText("");
+            this.txtTitInmLicencia.setText(licencia);
+            this.txtTitInmTipoGas.setText("");
+            this.txtTitInmUbicacion.setText("");
+        }
+             
+        
+        
+//        //txt enabled
+//        this.txtTitInmDireccion.setEditable(true);
+//        this.txtTitInmPropietario.setEditable(true);
+//        this.txtTitInmSuperficie.setEditable(true);
+//        this.txtTitInmNumHab.setEditable(true);
+//        this.txtTitInmNumBaños.setEditable(true);
+//        this.txtTitInmLicencia.setEditable(true);
+//        this.txtTitInmTipoGas.setEditable(true);
+//        this.txtTitInmUbicacion.setEditable(true);
+//        
+//        //txt variables
+//        this.txtTitInmIdInmueble.setText(idInmueble);
+//        this.txtTitInmDireccion.setText(direccion);
+//        this.txtTitInmTipo.setText(tipo);
+//        this.txtTitInmPropietario.setText(propietario);
+//        this.txtTitInmSuperficie.setText(superficie);
+//        this.txtTitInmNumHab.setText(habitaciones);
+//        this.txtTitInmNumBaños.setText(baños);
+//        this.txtTitInmLicencia.setText(licencia);
+//        this.txtTitInmTipoGas.setText(gas);
+//        this.txtTitInmUbicacion.setText(ubicacion);
+    }//GEN-LAST:event_tablaTitInmuebleMouseClicked
+
+    private void btnTitInmNuevoPisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmNuevoPisoActionPerformed
+        //boton nuevo piso
+        //txt enabled
+        this.txtTitInmDireccion.setEditable(true);
+        this.txtTitInmPropietario.setEditable(true);
+        this.txtTitInmSuperficie.setEditable(true);
+        this.txtTitInmNumHab.setEditable(true);
+        this.txtTitInmNumBaños.setEditable(true);
+        this.txtTitInmLicencia.setEditable(false);
+        this.txtTitInmTipoGas.setEditable(true);
+        this.txtTitInmUbicacion.setEditable(true);
+        
+        //botones
+        this.btnTitInmGuardar.setEnabled(true);
+        this.btnTitInmModificar.setEnabled(false);
+        this.btnTitInmEliminar.setEnabled(false);
+        
+        //txt blanco
+        this.txtTitInmIdInmueble.setText("");
+        this.txtTitInmDireccion.setText("");
+        this.txtTitInmTipo.setText("Piso");
+        this.txtTitInmPropietario.setText("");
+        this.txtTitInmSuperficie.setText("");
+        this.txtTitInmNumHab.setText("");
+        this.txtTitInmNumBaños.setText("");
+        this.txtTitInmLicencia.setText("");
+        this.txtTitInmTipoGas.setText("");
+        this.txtTitInmUbicacion.setText("");
+    }//GEN-LAST:event_btnTitInmNuevoPisoActionPerformed
+
+    private void btnTitInmNuevoLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmNuevoLocalActionPerformed
+        //boton nuevo local
+        //txt enabled
+        this.txtTitInmDireccion.setEditable(true);
+        this.txtTitInmPropietario.setEditable(true);
+        this.txtTitInmSuperficie.setEditable(true);
+        this.txtTitInmNumHab.setEditable(false);
+        this.txtTitInmNumBaños.setEditable(false);
+        this.txtTitInmLicencia.setEditable(true);
+        this.txtTitInmTipoGas.setEditable(false);
+        this.txtTitInmUbicacion.setEditable(false);
+        
+        //botones
+        this.btnTitInmGuardar.setEnabled(true);
+        this.btnTitInmModificar.setEnabled(false);
+        this.btnTitInmEliminar.setEnabled(false);
+        
+        //txt blanco
+        this.txtTitInmIdInmueble.setText("");
+        this.txtTitInmDireccion.setText("");
+        this.txtTitInmTipo.setText("Local");
+        this.txtTitInmPropietario.setText("");
+        this.txtTitInmSuperficie.setText("");
+        this.txtTitInmNumHab.setText("");
+        this.txtTitInmNumBaños.setText("");
+        this.txtTitInmLicencia.setText("");
+        this.txtTitInmTipoGas.setText("");
+        this.txtTitInmUbicacion.setText("");
+    }//GEN-LAST:event_btnTitInmNuevoLocalActionPerformed
+
+    private void btnTitInmGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmGuardarActionPerformed
+        //Guardar inmueble
+                
+        if(this.txtTitInmTipo.getText().equals("Piso")){
+            if(this.ft.insertarPiso(Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), Integer.parseInt(this.txtTitInmNumHab.getText()), Integer.parseInt(this.txtTitInmNumBaños.getText()), this.txtTitInmTipoGas.getText(), this.txtTitInmUbicacion.getText())){
+            JOptionPane.showMessageDialog(null, "Piso insertado con exito");
+            }else{
+            JOptionPane.showMessageDialog(null, "Error al insertar inmueble");
+            }
+        }else if(this.txtTitInmTipo.getText().equals("Local")){
+            if(this.ft.insertarLocal(Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), this.txtTitInmLicencia.getText())){
+            JOptionPane.showMessageDialog(null, "Local insertado con exito");
+            }else{
+            JOptionPane.showMessageDialog(null, "Error al insertar inmueble");
+            }
+        }
+        tablaTitInmueble.setModel(ft.tablaInmueble(Integer.parseInt(this.lblTitInmCodAgencia.getText())));
+        
+        //Botones
+        this.btnTitInmGuardar.setEnabled(false);
+        this.btnTitInmModificar.setEnabled(false);
+        this.btnTitInmEliminar.setEnabled(false);
+        
+        //txt
+        this.txtTitInmDireccion.setEditable(false);
+        this.txtTitInmPropietario.setEditable(false);
+        this.txtTitInmSuperficie.setEditable(false);
+        this.txtTitInmNumHab.setEditable(false);
+        this.txtTitInmNumBaños.setEditable(false);
+        this.txtTitInmLicencia.setEditable(false);
+        this.txtTitInmTipoGas.setEditable(false);
+        this.txtTitInmUbicacion.setEditable(false);
+        
+        //txt blanco
+        this.txtTitInmIdInmueble.setText("");
+        this.txtTitInmDireccion.setText("");
+        this.txtTitInmTipo.setText("");
+        this.txtTitInmPropietario.setText("");
+        this.txtTitInmSuperficie.setText("");
+        this.txtTitInmNumHab.setText("");
+        this.txtTitInmNumBaños.setText("");
+        this.txtTitInmLicencia.setText("");
+        this.txtTitInmTipoGas.setText("");
+        this.txtTitInmUbicacion.setText("");
+    }//GEN-LAST:event_btnTitInmGuardarActionPerformed
+
+    private void btnTitInmEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitInmEliminarActionPerformed
+        //boton eliminar inmueble
+        Integer idInmueble = Integer.parseInt(this.txtTitInmIdInmueble.getText());
+        
+        if(this.ft.eliminarInmueble(idInmueble)){
+            JOptionPane.showMessageDialog(null, "Inmueble eliminado");
+            this.tablaTitInmueble.setModel(this.ft.tablaInmueble(Integer.parseInt(this.lblTitInmCodAgencia.getText())));
+        }
+        
+        
+    }//GEN-LAST:event_btnTitInmEliminarActionPerformed
+
+    private void mnuCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCerrarSesionActionPerformed
+        //menu cerrar sesion
+        this.panelLogin.setVisible(true);
+        
+        this.panelTitular.setVisible(false);
+        this.panelTitVendedores.setVisible(false);
+        this.panelTitInmuebles.setVisible(false);
+        this.panelTitVentas.setVisible(false);
+        
+        this.panelVendedor.setVisible(false);
+        this.panelVendNuevaVenta.setVisible(false);
+        this.panelVendCliente.setVisible(false);
+        
+        this.txtLogin.setText("");
+    }//GEN-LAST:event_mnuCerrarSesionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2066,6 +2475,8 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -2091,6 +2502,8 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2126,6 +2539,7 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel lblVendVenta;
     private javax.swing.JLabel lblVendVentaCodAgencia;
     private javax.swing.JLabel lblVendVentaNombreAgencia;
+    private javax.swing.JMenuItem mnuCerrarSesion;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelTitInmuebles;
     private javax.swing.JPanel panelTitVendedores;
@@ -2141,11 +2555,13 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JTable tablaVendVentas;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtTitInmDireccion;
+    private javax.swing.JTextField txtTitInmIdInmueble;
     private javax.swing.JTextField txtTitInmLicencia;
     private javax.swing.JTextField txtTitInmNumBaños;
     private javax.swing.JTextField txtTitInmNumHab;
     private javax.swing.JTextField txtTitInmPropietario;
     private javax.swing.JTextField txtTitInmSuperficie;
+    private javax.swing.JTextField txtTitInmTipo;
     private javax.swing.JTextField txtTitInmTipoGas;
     private javax.swing.JTextField txtTitInmUbicacion;
     private javax.swing.JTextField txtTitVenApellidos;
