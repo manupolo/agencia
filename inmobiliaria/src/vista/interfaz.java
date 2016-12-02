@@ -1656,6 +1656,7 @@ public class interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTitVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVentasActionPerformed
+        //Titular Ventas
         this.panelLogin.setVisible(false);
         
         this.panelTitular.setVisible(false);
@@ -1666,6 +1667,8 @@ public class interfaz extends javax.swing.JFrame {
         this.panelVendedor.setVisible(false);
         this.panelVendNuevaVenta.setVisible(false);
         this.panelVendCliente.setVisible(false);
+        
+        this.tablaTitVentas.setModel(this.ft.tablaVentasTitular());
     }//GEN-LAST:event_btnTitVentasActionPerformed
 
     private void btnTitVendedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTitVendedoresActionPerformed

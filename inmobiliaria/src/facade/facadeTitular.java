@@ -4,16 +4,21 @@ package facade;
 import javax.swing.table.DefaultTableModel;
 import metodos.inmueble;
 import metodos.vendedor;
+import metodos.ventas;
 
 public class facadeTitular {
     vendedor v = new vendedor();
     inmueble inm = new inmueble();
+    ventas ven = new ventas();
     
     //Carga la tabla vendedores
     public DefaultTableModel tablaVendedor(int idAgencia){
         return v.tablaVendedor(idAgencia);
     }
     
+    public DefaultTableModel tablaVentasTitular(){
+        return ven.tablaVentasTitular();
+    }
     //Inserta vendedores pasandole los datos por parametros
     public boolean insertarVendedor(String idVendedor, int idAgencia, String nombr, String apellidos, int telefono, String correo){
         return v.insertarVendedor(idVendedor, idAgencia, nombr, apellidos, telefono, correo);

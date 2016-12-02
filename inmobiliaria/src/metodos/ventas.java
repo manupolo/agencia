@@ -63,7 +63,51 @@ public class ventas {
         return m;
     }
     
-    
+    public DefaultTableModel tablaVentasTitular() {
+        Session session = null;
+        DefaultTableModel m = new DefaultTableModel() {
+           
+            public boolean isCellEditable(int column, int row) {
+                return false;
+            }
+        };
+        session = HibernateUtil.getSessionFactory().openSession();
+        String[] columns = {"DNI Cliente", "Nombre", "Apellidos", "Telefono", "idInmueble", "Direccion", "Tipo", "Estado", "Propietario", "Superficie", "Fecha", "Señal"}; 
+        Query createQuery = session.createQuery("select count(idInmueble) from VentaInmueble"); 
+        
+        int c =  Integer.parseInt(createQuery.uniqueResult().toString());
+        Query createQuery2 = session.createQuery("from VentaInmueble");
+        
+        Object data[][] = new Object[c][12];
+        List rs = createQuery2.list();
+        Iterator it = rs.iterator();
+        int i = 0;
+        while (it.hasNext()) { 
+            VentaInmueble vin = (VentaInmueble) it.next(); 
+            
+            Inmueble in = vin.getInmueble();
+            Cliente cli = vin.getCliente();
+            
+            data[i][0] = cli.getIdCliente();
+            data[i][1] = cli.getNombre();
+            data[i][2] = cli.getApellidos();
+            data[i][3] = cli.getTelefono();
+            data[i][4] = in.getIdInmueble();
+            data[i][5] = in.getDireccion();
+            data[i][6] = in.getTipo();
+            data[i][7] = in.getEstado();
+            data[i][8] = in.getPropietario();
+            data[i][9] = in.getSuperficie();
+            data[i][10] = vin.getFecha();
+            data[i][11] = vin.getSeñal();
+            
+            
+           i++;
+        }
+        m.setDataVector(data, columns);
+        session.close();
+        return m;
+    }
     
     public boolean insertarVenta(String idCliente, String idVendedor, int idInmueble, float señal, String fecha){
         Transaction tx = null;
