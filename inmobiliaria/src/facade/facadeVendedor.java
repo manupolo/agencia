@@ -48,9 +48,13 @@ public class facadeVendedor {
     public boolean insertarVenta(String idCliente, String idVendedor, int idInmueble, float señal, String fecha){
         return v.insertarVenta(idCliente, idVendedor, idInmueble, señal, fecha);
     }
+    //Modifica una venta
+    public boolean modificarVenta(String idCliente, String idVendedor, int idInmueble, float señal, String fecha){
+        return v.modificarVenta(idCliente, idVendedor, idInmueble, señal, fecha);
+    }
     //Eliminar venta pasandole por parametros el id de inmueble
-    public boolean eliminarVenta(int idInmueble){
-        return v.eliminarVenta(idInmueble);
+    public boolean eliminarVenta(int idInmueble, String idCliente, String idVendedor){
+        return v.eliminarVenta(idInmueble, idCliente, idVendedor);
     }
     
     //Comprueba si el cliente existe o no

@@ -4,6 +4,7 @@ package vista;
 import facade.facadeTitular;
 import facade.facadeVendedor;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import metodos.login;
 import metodos.metodosValidar;
@@ -1247,6 +1248,11 @@ public class interfaz extends javax.swing.JFrame {
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnVendVentaModificar.setText("Modificar");
+        btnVendVentaModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendVentaModificarActionPerformed(evt);
+            }
+        });
 
         btnVendVentaEliminar.setText("Eliminar");
         btnVendVentaEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -1270,6 +1276,11 @@ public class interfaz extends javax.swing.JFrame {
         });
 
         btnVendVentaNuevo.setText("Nuevo");
+        btnVendVentaNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendVentaNuevoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1748,13 +1759,13 @@ public class interfaz extends javax.swing.JFrame {
                 if(mv.validar(this.txtTitInmNumBaños.getText())){
                     
                     if(this.txtTitInmTipo.getText().equals("Piso")){
-                        if(this.ft.modificarPiso(Integer.parseInt(this.txtTitInmIdInmueble.getText()), Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), Integer.parseInt(this.txtTitInmNumHab.getText()), Integer.parseInt(this.txtTitInmNumBaños.getText()), this.txtTitInmTipoGas.getText(), this.txtTitInmUbicacion.getText())){
+                        if(this.ft.modificarPiso(Integer.parseInt(this.txtTitInmIdInmueble.getText()), Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "Libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), Integer.parseInt(this.txtTitInmNumHab.getText()), Integer.parseInt(this.txtTitInmNumBaños.getText()), this.txtTitInmTipoGas.getText(), this.txtTitInmUbicacion.getText())){
                         JOptionPane.showMessageDialog(null, "Piso modificado con exito");
                         }else{
                         JOptionPane.showMessageDialog(null, "Error al modificar inmueble");
                         }
                     }else if(this.txtTitInmTipo.getText().equals("Local")){
-                        if(this.ft.modificarLocal(Integer.parseInt(this.txtTitInmIdInmueble.getText()), Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), this.txtTitInmLicencia.getText())){
+                        if(this.ft.modificarLocal(Integer.parseInt(this.txtTitInmIdInmueble.getText()), Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "Libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), this.txtTitInmLicencia.getText())){
                         JOptionPane.showMessageDialog(null, "Local modificado con exito");
                         }else{
                         JOptionPane.showMessageDialog(null, "Error al modificar inmueble");
@@ -1878,6 +1889,20 @@ public class interfaz extends javax.swing.JFrame {
         this.txtVendVentaSeñal.setText("");
         this.txtVendVentaTelefono.setText("");
         this.txtVendVentaInmueble.setText("");
+        this.dcVendedor.setDate(new Date());
+        
+        //txt enabled
+        this.txtVendVentaDni.setEditable(false);
+        this.txtVendVentaNombre.setEditable(false);
+        this.txtVendVentaApellidos.setEditable(false);
+        this.txtVendVentaSeñal.setEditable(false);
+        this.txtVendVentaTelefono.setEditable(false);
+        this.txtVendVentaInmueble.setEditable(false);
+        
+        //Botones
+        this.btnVendVentaEliminar.setEnabled(false);
+        this.btnVendVentaModificar.setEnabled(false);
+        this.btnVendVentaGuardar.setEnabled(false);
         
         
         this.tablaVendVentas.setModel(this.fv.tablaVentas(this.lblVendVenta.getText()));
@@ -2509,13 +2534,13 @@ public class interfaz extends javax.swing.JFrame {
                 if(mv.validar(this.txtTitInmNumBaños.getText())){
                     
                     if(this.txtTitInmTipo.getText().equals("Piso")){
-                        if(this.ft.insertarPiso(Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), Integer.parseInt(this.txtTitInmNumHab.getText()), Integer.parseInt(this.txtTitInmNumBaños.getText()), this.txtTitInmTipoGas.getText(), this.txtTitInmUbicacion.getText())){
+                        if(this.ft.insertarPiso(Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "Libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), Integer.parseInt(this.txtTitInmNumHab.getText()), Integer.parseInt(this.txtTitInmNumBaños.getText()), this.txtTitInmTipoGas.getText(), this.txtTitInmUbicacion.getText())){
                         JOptionPane.showMessageDialog(null, "Piso insertado con exito");
                         }else{
                         JOptionPane.showMessageDialog(null, "Error al insertar inmueble");
                         }
                     }else if(this.txtTitInmTipo.getText().equals("Local")){
-                        if(this.ft.insertarLocal(Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), this.txtTitInmLicencia.getText())){
+                        if(this.ft.insertarLocal(Integer.parseInt(this.lblTitInmCodAgencia.getText()), this.txtTitInmDireccion.getText(), this.txtTitInmTipo.getText(), "Libre", this.txtTitInmPropietario.getText(), Integer.parseInt(this.txtTitInmSuperficie.getText()), this.txtTitInmLicencia.getText())){
                         JOptionPane.showMessageDialog(null, "Local insertado con exito");
                         }else{
                         JOptionPane.showMessageDialog(null, "Error al insertar inmueble");
@@ -2658,16 +2683,36 @@ public class interfaz extends javax.swing.JFrame {
         this.txtVendVentaSeñal.setText("");
         this.txtVendVentaTelefono.setText("");
         this.txtVendVentaInmueble.setText("");
+        this.dcVendedor.cleanup();
         
-        
+        //Botones
+        this.btnVendVentaGuardar.setEnabled(false);
     }//GEN-LAST:event_btnVendVentaGuardarActionPerformed
 
     private void btnVendVentaEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendVentaEliminarActionPerformed
         // Eliminar venta
-        if(fv.eliminarVenta(Integer.parseInt(this.txtVendVentaInmueble.getText()))){
+        if(fv.eliminarVenta(Integer.parseInt(this.txtVendVentaInmueble.getText()), this.txtVendVentaDni.getText(), this.lblVendVenta.getText())){
             JOptionPane.showMessageDialog(null, "Venta eliminada");
             this.tablaVendVentas.setModel(this.fv.tablaVentas(this.lblVendVenta.getText()));
+            fv.cambiarEstado(Integer.parseInt(this.txtVendVentaInmueble.getText()), "Libre");
         }
+        
+        //txt en blanco
+        this.txtVendVentaDni.setText("");
+        this.txtVendVentaNombre.setText("");
+        this.txtVendVentaApellidos.setText("");
+        this.txtVendVentaSeñal.setText("");
+        this.txtVendVentaTelefono.setText("");
+        this.txtVendVentaInmueble.setText("");
+        this.dcVendedor.setDate(new Date());
+        
+        //txt enabled
+        this.txtVendVentaDni.setEditable(false);
+        this.txtVendVentaNombre.setEditable(false);
+        this.txtVendVentaApellidos.setEditable(false);
+        this.txtVendVentaSeñal.setEditable(false);
+        this.txtVendVentaTelefono.setEditable(false);
+        this.txtVendVentaInmueble.setEditable(false);
     }//GEN-LAST:event_btnVendVentaEliminarActionPerformed
 
     private void tablaVendVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVendVentasMouseClicked
@@ -2699,7 +2744,63 @@ public class interfaz extends javax.swing.JFrame {
         this.txtVendVentaSeñal.setText(señal);
         this.txtVendVentaInmueble.setText(idInmueble);
         
+        //botones
+        this.btnVendVentaEliminar.setEnabled(true);
+        this.btnVendVentaModificar.setEnabled(true);
     }//GEN-LAST:event_tablaVendVentasMouseClicked
+
+    private void btnVendVentaNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendVentaNuevoActionPerformed
+        //Limpiar venta
+        //txt en blanco
+        this.txtVendVentaDni.setText("");
+        this.txtVendVentaNombre.setText("");
+        this.txtVendVentaApellidos.setText("");
+        this.txtVendVentaSeñal.setText("");
+        this.txtVendVentaTelefono.setText("");
+        this.txtVendVentaInmueble.setText("");
+        this.dcVendedor.setDate(new Date());
+        //Botones
+        this.btnVendVentaGuardar.setEnabled(true);
+        this.btnVendVentaEliminar.setEnabled(false);
+        this.btnVendVentaModificar.setEnabled(false);
+        //txt enabled
+        this.txtVendVentaDni.setEditable(true);
+        this.txtVendVentaNombre.setEditable(true);
+        this.txtVendVentaApellidos.setEditable(true);
+        this.txtVendVentaSeñal.setEditable(true);
+        this.txtVendVentaTelefono.setEditable(true);
+        this.txtVendVentaInmueble.setEditable(true);
+    }//GEN-LAST:event_btnVendVentaNuevoActionPerformed
+
+    private void btnVendVentaModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendVentaModificarActionPerformed
+        //Modificar venta
+        String fecha = new SimpleDateFormat("yyyy-MM-dd").format(this.dcVendedor.getDate());
+        String estado = (String) cmbVendVenta.getSelectedItem();
+        System.out.println("El estado es: " +estado);
+        
+        if(fv.modificarVenta(this.txtVendVentaDni.getText(), this.lblVendVenta.getText(), Integer.parseInt(this.txtVendVentaInmueble.getText()), Float.parseFloat(this.txtVendVentaSeñal.getText()), fecha)){
+            fv.cambiarEstado(Integer.parseInt(this.txtVendVentaInmueble.getText()), estado);
+            this.tablaVendVentas.setModel(this.fv.tablaVentas(this.lblVendVenta.getText()));
+            JOptionPane.showMessageDialog(null, "Venta modificada");
+        }
+        
+        //txt en blanco
+        this.txtVendVentaDni.setText("");
+        this.txtVendVentaNombre.setText("");
+        this.txtVendVentaApellidos.setText("");
+        this.txtVendVentaSeñal.setText("");
+        this.txtVendVentaTelefono.setText("");
+        this.txtVendVentaInmueble.setText("");
+        this.dcVendedor.setDate(new Date());
+        
+        //txt enabled
+        this.txtVendVentaDni.setEditable(false);
+        this.txtVendVentaNombre.setEditable(false);
+        this.txtVendVentaApellidos.setEditable(false);
+        this.txtVendVentaSeñal.setEditable(false);
+        this.txtVendVentaTelefono.setEditable(false);
+        this.txtVendVentaInmueble.setEditable(false);
+    }//GEN-LAST:event_btnVendVentaModificarActionPerformed
 
     /**
      * @param args the command line arguments

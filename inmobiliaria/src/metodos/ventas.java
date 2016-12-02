@@ -95,15 +95,48 @@ public class ventas {
         return true;
     }
     
-    public boolean eliminarVenta(int idInmueble){
+    public boolean modificarVenta(String idCliente, String idVendedor, int idInmueble, float señal, String fecha){
+        Transaction tx = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        tx = session.beginTransaction();
+        
+        VentaInmueble vi = new VentaInmueble();
+        
+        VentaInmuebleId viid = new VentaInmuebleId(idInmueble, idCliente, idVendedor);
+        Cliente c = new Cliente();
+        Vendedor v = new Vendedor();
+        Inmueble i = new Inmueble();
+        
+        c = (Cliente) session.load(Cliente.class, idCliente);
+        v = (Vendedor) session.load(Vendedor.class, idVendedor);
+        i = (Inmueble) session.load(Inmueble.class, idInmueble);
+        
+        vi.setId(viid);
+        vi.setCliente(c);
+        vi.setInmueble(i);
+        vi.setVendedor(v);
+        vi.setSeñal(señal);
+        vi.setFecha(fecha);
+        
+        session.update(vi);
+        tx.commit();
+        session.close();
+        
+        return true;
+    }
+    
+    public boolean eliminarVenta(int idInmueble, String idCliente, String idVendedor){
             Transaction tx=null;
             Session session= HibernateUtil.getSessionFactory().openSession();
             tx=session.beginTransaction(); //Crea una transacción
-            VentaInmueble vin = new VentaInmueble();
-
-            vin = (VentaInmueble) session.load(VentaInmueble.class, idInmueble);
-
-            session.delete(vin);
+            VentaInmuebleId vinid = new VentaInmuebleId();
+            vinid.setIdInmueble(idInmueble);
+            vinid.setIdCliente(idCliente);
+            vinid.setIdVendedor(idVendedor);
+            
+            VentaInmueble vi = (VentaInmueble) session.load(VentaInmueble.class, vinid);
+            
+            session.delete(vi);
             tx.commit();
             session.close();
         return true;
