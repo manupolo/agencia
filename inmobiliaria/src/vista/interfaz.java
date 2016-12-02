@@ -3,6 +3,7 @@ package vista;
 
 import facade.facadeTitular;
 import facade.facadeVendedor;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import metodos.login;
 import metodos.metodosValidar;
@@ -13,6 +14,7 @@ public class interfaz extends javax.swing.JFrame {
     login l = new login();
     metodosValidar mv = new metodosValidar();
     
+    String idInmueble = "";
     //25874545F
     
     public interfaz() {
@@ -44,6 +46,11 @@ public class interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        diagBuscarInmueble = new javax.swing.JDialog();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaVendAñadirInmueble = new javax.swing.JTable();
+        btnVenVentaAñadirInmueble = new javax.swing.JButton();
         panelLogin = new javax.swing.JPanel();
         lblNombreAgencia2 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -167,6 +174,12 @@ public class interfaz extends javax.swing.JFrame {
         txtVendVentaTelefono = new javax.swing.JTextField();
         txtVendVentaSeñal = new javax.swing.JTextField();
         btnVendBuscarCliente = new javax.swing.JButton();
+        dcVendedor = new com.toedter.calendar.JDateChooser();
+        btnVendBuscarCliente1 = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        txtVendVentaInmueble = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        cmbVendVenta = new javax.swing.JComboBox<>();
         jPanel10 = new javax.swing.JPanel();
         btnVendVentaModificar = new javax.swing.JButton();
         btnVendVentaEliminar = new javax.swing.JButton();
@@ -201,6 +214,65 @@ public class interfaz extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnuCerrarSesion = new javax.swing.JMenuItem();
+
+        tablaVendAñadirInmueble.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaVendAñadirInmueble.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaVendAñadirInmuebleMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tablaVendAñadirInmueble);
+
+        btnVenVentaAñadirInmueble.setText("Añadir");
+        btnVenVentaAñadirInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVenVentaAñadirInmuebleActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVenVentaAñadirInmueble)))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnVenVentaAñadirInmueble)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout diagBuscarInmuebleLayout = new javax.swing.GroupLayout(diagBuscarInmueble.getContentPane());
+        diagBuscarInmueble.getContentPane().setLayout(diagBuscarInmuebleLayout);
+        diagBuscarInmuebleLayout.setHorizontalGroup(
+            diagBuscarInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        diagBuscarInmuebleLayout.setVerticalGroup(
+            diagBuscarInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1031,6 +1103,11 @@ public class interfaz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaVendVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaVendVentasMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(tablaVendVentas);
 
         jLabel30.setText("Código Agencia: ");
@@ -1056,53 +1133,81 @@ public class interfaz extends javax.swing.JFrame {
         jLabel36.setText("Fecha:");
 
         btnVendBuscarCliente.setText("Buscar Cliente");
+        btnVendBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendBuscarClienteActionPerformed(evt);
+            }
+        });
+
+        dcVendedor.setDateFormatString("yyyy-MMM-dd");
+
+        btnVendBuscarCliente1.setText("Buscar Inmueble");
+        btnVendBuscarCliente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendBuscarCliente1ActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setText("Inmueble:");
+
+        txtVendVentaInmueble.setEditable(false);
+
+        jLabel42.setText("Tipo venta:");
+
+        cmbVendVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alquiler", "Venta" }));
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel32)
-                    .addComponent(jLabel33))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtVendVentaApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                    .addComponent(txtVendVentaNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                    .addComponent(txtVendVentaDni, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                    .addComponent(btnVendBuscarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(63, 63, 63)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel36)
-                            .addComponent(jLabel35))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel33))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtVendVentaApellidos)
+                            .addComponent(txtVendVentaNombre)
+                            .addComponent(txtVendVentaDni, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(btnVendBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVendBuscarCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(61, 61, 61)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel9Layout.createSequentialGroup()
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel9Layout.createSequentialGroup()
+                                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel36)
+                                        .addComponent(jLabel35))
+                                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addGroup(jPanel9Layout.createSequentialGroup()
+                            .addComponent(jLabel28)
+                            .addGap(14, 14, 14)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel42)
+                        .addGap(7, 7, 7)))
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmbVendVenta, 0, 130, Short.MAX_VALUE)
+                    .addComponent(txtVendVentaInmueble)
                     .addComponent(txtVendVentaTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                    .addComponent(txtVendVentaSeñal))
+                    .addComponent(txtVendVentaSeñal)
+                    .addComponent(dcVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(41, 41, 41))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel34)
-                    .addComponent(txtVendVentaTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVendBuscarCliente))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel35)
-                            .addComponent(txtVendVentaSeñal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel36))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel31)
@@ -1114,8 +1219,29 @@ public class interfaz extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel33)
-                            .addComponent(txtVendVentaApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(31, Short.MAX_VALUE))
+                            .addComponent(txtVendVentaApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel36)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34)
+                            .addComponent(txtVendVentaTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel35)
+                            .addComponent(txtVendVentaSeñal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(dcVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVendBuscarCliente)
+                    .addComponent(btnVendBuscarCliente1)
+                    .addComponent(jLabel28)
+                    .addComponent(txtVendVentaInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(cmbVendVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1123,6 +1249,11 @@ public class interfaz extends javax.swing.JFrame {
         btnVendVentaModificar.setText("Modificar");
 
         btnVendVentaEliminar.setText("Eliminar");
+        btnVendVentaEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendVentaEliminarActionPerformed(evt);
+            }
+        });
 
         btnVendVentaSalir.setText("Salir");
         btnVendVentaSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -1132,6 +1263,11 @@ public class interfaz extends javax.swing.JFrame {
         });
 
         btnVendVentaGuardar.setText("Guardar");
+        btnVendVentaGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVendVentaGuardarActionPerformed(evt);
+            }
+        });
 
         btnVendVentaNuevo.setText("Nuevo");
 
@@ -1160,7 +1296,7 @@ public class interfaz extends javax.swing.JFrame {
                 .addComponent(btnVendVentaModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVendVentaEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(btnVendVentaSalir)
                 .addContainerGap())
         );
@@ -1182,7 +1318,7 @@ public class interfaz extends javax.swing.JFrame {
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(118, 118, 118)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 69, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelVendNuevaVentaLayout.createSequentialGroup()
                         .addComponent(jLabel47)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1206,11 +1342,13 @@ public class interfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblVendVentaNombreAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(panelVendNuevaVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelVendNuevaVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelVendNuevaVentaLayout.createSequentialGroup()
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1720,6 +1858,8 @@ public class interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVendVentaSalirActionPerformed
 
     private void btnVendNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendNuevaVentaActionPerformed
+        //Nueva venta
+        
         this.panelLogin.setVisible(false);
         
         this.panelTitular.setVisible(false);
@@ -1730,6 +1870,17 @@ public class interfaz extends javax.swing.JFrame {
         this.panelVendedor.setVisible(false);
         this.panelVendNuevaVenta.setVisible(true);
         this.panelVendCliente.setVisible(false);
+        
+        //txt en blanco
+        this.txtVendVentaDni.setText("");
+        this.txtVendVentaNombre.setText("");
+        this.txtVendVentaApellidos.setText("");
+        this.txtVendVentaSeñal.setText("");
+        this.txtVendVentaTelefono.setText("");
+        this.txtVendVentaInmueble.setText("");
+        
+        
+        this.tablaVendVentas.setModel(this.fv.tablaVentas(this.lblVendVenta.getText()));
     }//GEN-LAST:event_btnVendNuevaVentaActionPerformed
 
     private void btnVendClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendClientesActionPerformed
@@ -2442,6 +2593,114 @@ public class interfaz extends javax.swing.JFrame {
         this.txtLogin.setText("");
     }//GEN-LAST:event_mnuCerrarSesionActionPerformed
 
+    private void btnVendBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendBuscarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVendBuscarClienteActionPerformed
+
+    private void btnVendBuscarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendBuscarCliente1ActionPerformed
+        // Buscar Inmueble
+        int idAgen = Integer.parseInt(this.lblVendVentaCodAgencia.getText());
+        this.diagBuscarInmueble.setVisible(true);
+        this.diagBuscarInmueble.setSize(1000, 250);
+        this.diagBuscarInmueble.setLocationRelativeTo(null);
+        tablaVendAñadirInmueble.setModel(fv.tablaInmueblesLibres(idAgen));
+    }//GEN-LAST:event_btnVendBuscarCliente1ActionPerformed
+
+    private void tablaVendAñadirInmuebleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVendAñadirInmuebleMouseClicked
+        // tabla buscar inmueble
+        int fila;
+        
+        fila = this.tablaVendAñadirInmueble.rowAtPoint(evt.getPoint());
+             if (fila > -1){                
+                idInmueble = ( String.valueOf( this.tablaVendAñadirInmueble.getValueAt(fila, 0) ));  
+            }
+        System.out.println("La id de inmueble es:" +idInmueble);
+    }//GEN-LAST:event_tablaVendAñadirInmuebleMouseClicked
+
+    private void btnVenVentaAñadirInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenVentaAñadirInmuebleActionPerformed
+        // TODO add your handling code here:
+        this.txtVendVentaInmueble.setText(idInmueble);
+        this.diagBuscarInmueble.dispose();
+    }//GEN-LAST:event_btnVenVentaAñadirInmuebleActionPerformed
+
+    private void btnVendVentaGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendVentaGuardarActionPerformed
+        // Guardar venta
+        String fecha = new SimpleDateFormat("yyyy-MM-dd").format(this.dcVendedor.getDate());
+        String estado = (String) cmbVendVenta.getSelectedItem();
+        System.out.println("El estado es: " +estado);
+        
+        //Comprobamos si el cliente existe
+        if(fv.comprobarCliente(this.txtVendVentaDni.getText())){
+            //En caso de que exista introducimos solo los datos de la venta
+            if(fv.insertarVenta(this.txtVendVentaDni.getText(), this.lblVendVenta.getText(), Integer.parseInt(this.txtVendVentaInmueble.getText()), Float.parseFloat(this.txtVendVentaSeñal.getText()), fecha)){
+            JOptionPane.showMessageDialog(null, "Venta Insertada");
+            }
+            //Cambiamos el estado del inmueble
+            fv.cambiarEstado(Integer.parseInt(this.txtVendVentaInmueble.getText()), estado);
+            this.tablaVendVentas.setModel(this.fv.tablaVentas(this.lblVendVenta.getText()));
+        }else{
+            //En caso de que el cliente no exista primero lo creamos
+            if(fv.insertarCliente(this.txtVendVentaDni.getText(), this.txtVendVentaNombre.getText(), this.txtVendVentaApellidos.getText(), Integer.parseInt(this.txtVendVentaTelefono.getText()))){
+                //Despues de crear el cliente insertamos la venta
+                if(fv.insertarVenta(this.txtVendVentaDni.getText(), this.lblVendVenta.getText(), Integer.parseInt(this.txtVendVentaInmueble.getText()), Float.parseFloat(this.txtVendVentaSeñal.getText()), fecha)){
+                JOptionPane.showMessageDialog(null, "Venta Insertada");
+                }
+                //Cambiamos el estado del inmueble
+                fv.cambiarEstado(Integer.parseInt(this.txtVendVentaInmueble.getText()), estado);
+                this.tablaVendVentas.setModel(this.fv.tablaVentas(this.lblVendVenta.getText()));
+            }          
+        }
+        
+        //txt en blanco
+        this.txtVendVentaDni.setText("");
+        this.txtVendVentaNombre.setText("");
+        this.txtVendVentaApellidos.setText("");
+        this.txtVendVentaSeñal.setText("");
+        this.txtVendVentaTelefono.setText("");
+        this.txtVendVentaInmueble.setText("");
+        
+        
+    }//GEN-LAST:event_btnVendVentaGuardarActionPerformed
+
+    private void btnVendVentaEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendVentaEliminarActionPerformed
+        // Eliminar venta
+        if(fv.eliminarVenta(Integer.parseInt(this.txtVendVentaInmueble.getText()))){
+            JOptionPane.showMessageDialog(null, "Venta eliminada");
+            this.tablaVendVentas.setModel(this.fv.tablaVentas(this.lblVendVenta.getText()));
+        }
+    }//GEN-LAST:event_btnVendVentaEliminarActionPerformed
+
+    private void tablaVendVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVendVentasMouseClicked
+        // tabla ventas
+        String dni = "";
+        String nombre = "";
+        String apellidos = "";
+        String telefono = "";
+        String señal = "";
+        String idInmueble = "";
+        
+        int fila;
+        
+        fila = this.tablaVendVentas.rowAtPoint(evt.getPoint());
+             if (fila > -1){                
+                dni = ( String.valueOf( this.tablaVendVentas.getValueAt(fila, 0) ));
+                nombre = ( String.valueOf( this.tablaVendVentas.getValueAt(fila, 1) ));
+                apellidos = ( String.valueOf( this.tablaVendVentas.getValueAt(fila, 2) ));
+                telefono = ( String.valueOf( this.tablaVendVentas.getValueAt(fila, 3) )); 
+                señal = (String.valueOf( this.tablaVendVentas.getValueAt(fila, 11)));
+                idInmueble = ( String.valueOf( this.tablaVendVentas.getValueAt(fila, 4) ));
+                
+             }
+             
+        this.txtVendVentaDni.setText(dni);
+        this.txtVendVentaNombre.setText(nombre);
+        this.txtVendVentaApellidos.setText(apellidos);
+        this.txtVendVentaTelefono.setText(telefono);
+        this.txtVendVentaSeñal.setText(señal);
+        this.txtVendVentaInmueble.setText(idInmueble);
+        
+    }//GEN-LAST:event_tablaVendVentasMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2496,7 +2755,9 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JButton btnTitVentaModificar;
     private javax.swing.JButton btnTitVentaSalir;
     private javax.swing.JButton btnTitVentas;
+    private javax.swing.JButton btnVenVentaAñadirInmueble;
     private javax.swing.JButton btnVendBuscarCliente;
+    private javax.swing.JButton btnVendBuscarCliente1;
     private javax.swing.JButton btnVendClienteEliminar;
     private javax.swing.JButton btnVendClienteGuardar;
     private javax.swing.JButton btnVendClienteModificar;
@@ -2509,7 +2770,10 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JButton btnVendVentaModificar;
     private javax.swing.JButton btnVendVentaNuevo;
     private javax.swing.JButton btnVendVentaSalir;
+    private javax.swing.JComboBox<String> cmbVendVenta;
     private com.toedter.calendar.JDateChooser dcTitular;
+    private com.toedter.calendar.JDateChooser dcVendedor;
+    private javax.swing.JDialog diagBuscarInmueble;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2530,6 +2794,7 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -2545,6 +2810,7 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
@@ -2565,10 +2831,12 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel lblNombreAgencia;
@@ -2603,6 +2871,7 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JTable tablaTitInmueble;
     private javax.swing.JTable tablaTitVendedor;
     private javax.swing.JTable tablaTitVentas;
+    private javax.swing.JTable tablaVendAñadirInmueble;
     private javax.swing.JTable tablaVendCliente;
     private javax.swing.JTable tablaVendVentas;
     private javax.swing.JTextField txtLogin;
@@ -2632,6 +2901,7 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField txtVendClienteTelefono;
     private javax.swing.JTextField txtVendVentaApellidos;
     private javax.swing.JTextField txtVendVentaDni;
+    private javax.swing.JTextField txtVendVentaInmueble;
     private javax.swing.JTextField txtVendVentaNombre;
     private javax.swing.JTextField txtVendVentaSeñal;
     private javax.swing.JTextField txtVendVentaTelefono;

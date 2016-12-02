@@ -22,7 +22,7 @@ import pojo.Vendedor;
  */
 public class inmueble {
     
-    public DefaultTableModel tablaVendedor(int idAgencia) {
+    public DefaultTableModel tablaInmueble(int idAgencia) {
         Session session = null;
         DefaultTableModel m = new DefaultTableModel() {
            

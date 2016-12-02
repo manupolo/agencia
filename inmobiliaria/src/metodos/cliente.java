@@ -99,4 +99,19 @@ public class cliente {
         
         return res;
     }
+    
+    public boolean comprobarCliente(String idCliente){
+        boolean res = false;
+        
+        Session session = null;
+        session = HibernateUtil.getSessionFactory().openSession();
+        Query createQuery = session.createQuery("select count(idCliente) from Cliente where idCliente like '" +idCliente+ "'"); 
+        int c =  Integer.parseInt(createQuery.uniqueResult().toString());
+        if(c==1){
+            res = true;
+        }
+        session.close();
+        
+        return res;
+    }
 }

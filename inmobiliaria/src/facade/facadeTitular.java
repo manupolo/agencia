@@ -31,7 +31,7 @@ public class facadeTitular {
     
     //Carga la tabla inmuebles
     public DefaultTableModel tablaInmueble(int idAgencia){
-        return inm.tablaVendedor(idAgencia);
+        return inm.tablaInmueble(idAgencia);
     }
     
     //Inserta piso pasandole los datos por parametros
