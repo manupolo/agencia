@@ -15,7 +15,7 @@ public class facadeTitular {
     public DefaultTableModel tablaVendedor(int idAgencia){
         return v.tablaVendedor(idAgencia);
     }
-    
+    //Carga tabla ventas
     public DefaultTableModel tablaVentasTitular(){
         return ven.tablaVentasTitular();
     }

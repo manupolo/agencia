@@ -16,7 +16,11 @@ public class interfaz extends javax.swing.JFrame {
     metodosValidar mv = new metodosValidar();
     
     String idInmueble = "";
-    //25874545F
+    String dni = "";
+    String nombre = "";
+    String apellidos = "";
+    String telefono = "";
+   
     
     public interfaz() {
         initComponents();
@@ -52,6 +56,11 @@ public class interfaz extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tablaVendAñadirInmueble = new javax.swing.JTable();
         btnVenVentaAñadirInmueble = new javax.swing.JButton();
+        diagBuscarCliente = new javax.swing.JDialog();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tablaVendAñadirCliente = new javax.swing.JTable();
+        btnVenVentaAñadirCliente = new javax.swing.JButton();
         panelLogin = new javax.swing.JPanel();
         lblNombreAgencia2 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -176,7 +185,7 @@ public class interfaz extends javax.swing.JFrame {
         txtVendVentaSeñal = new javax.swing.JTextField();
         btnVendBuscarCliente = new javax.swing.JButton();
         dcVendedor = new com.toedter.calendar.JDateChooser();
-        btnVendBuscarCliente1 = new javax.swing.JButton();
+        btnVendBuscarInmueble = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         txtVendVentaInmueble = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
@@ -273,6 +282,65 @@ public class interfaz extends javax.swing.JFrame {
         diagBuscarInmuebleLayout.setVerticalGroup(
             diagBuscarInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        tablaVendAñadirCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaVendAñadirCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaVendAñadirClienteMouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(tablaVendAñadirCliente);
+
+        btnVenVentaAñadirCliente.setText("Añadir");
+        btnVenVentaAñadirCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVenVentaAñadirClienteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnVenVentaAñadirCliente)))
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnVenVentaAñadirCliente)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout diagBuscarClienteLayout = new javax.swing.GroupLayout(diagBuscarCliente.getContentPane());
+        diagBuscarCliente.getContentPane().setLayout(diagBuscarClienteLayout);
+        diagBuscarClienteLayout.setHorizontalGroup(
+            diagBuscarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        diagBuscarClienteLayout.setVerticalGroup(
+            diagBuscarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1142,10 +1210,10 @@ public class interfaz extends javax.swing.JFrame {
 
         dcVendedor.setDateFormatString("yyyy-MMM-dd");
 
-        btnVendBuscarCliente1.setText("Buscar Inmueble");
-        btnVendBuscarCliente1.addActionListener(new java.awt.event.ActionListener() {
+        btnVendBuscarInmueble.setText("Buscar Inmueble");
+        btnVendBuscarInmueble.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVendBuscarCliente1ActionPerformed(evt);
+                btnVendBuscarInmuebleActionPerformed(evt);
             }
         });
 
@@ -1177,7 +1245,7 @@ public class interfaz extends javax.swing.JFrame {
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(btnVendBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVendBuscarCliente1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnVendBuscarInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(61, 61, 61)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1235,7 +1303,7 @@ public class interfaz extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVendBuscarCliente)
-                    .addComponent(btnVendBuscarCliente1)
+                    .addComponent(btnVendBuscarInmueble)
                     .addComponent(jLabel28)
                     .addComponent(txtVendVentaInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -1906,6 +1974,8 @@ public class interfaz extends javax.swing.JFrame {
         this.btnVendVentaEliminar.setEnabled(false);
         this.btnVendVentaModificar.setEnabled(false);
         this.btnVendVentaGuardar.setEnabled(false);
+        this.btnVendBuscarCliente.setEnabled(false);
+        this.btnVendBuscarInmueble.setEnabled(false);
         
         
         this.tablaVendVentas.setModel(this.fv.tablaVentas(this.lblVendVenta.getText()));
@@ -2622,17 +2692,21 @@ public class interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuCerrarSesionActionPerformed
 
     private void btnVendBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendBuscarClienteActionPerformed
-        // TODO add your handling code here:
+        // Buscar Cliente
+        this.diagBuscarCliente.setVisible(true);
+        this.diagBuscarCliente.setSize(1000, 250);
+        this.diagBuscarCliente.setLocationRelativeTo(null);
+        tablaVendAñadirCliente.setModel(fv.tablaCliente());
     }//GEN-LAST:event_btnVendBuscarClienteActionPerformed
 
-    private void btnVendBuscarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendBuscarCliente1ActionPerformed
+    private void btnVendBuscarInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendBuscarInmuebleActionPerformed
         // Buscar Inmueble
         int idAgen = Integer.parseInt(this.lblVendVentaCodAgencia.getText());
         this.diagBuscarInmueble.setVisible(true);
         this.diagBuscarInmueble.setSize(1000, 250);
         this.diagBuscarInmueble.setLocationRelativeTo(null);
         tablaVendAñadirInmueble.setModel(fv.tablaInmueblesLibres(idAgen));
-    }//GEN-LAST:event_btnVendBuscarCliente1ActionPerformed
+    }//GEN-LAST:event_btnVendBuscarInmuebleActionPerformed
 
     private void tablaVendAñadirInmuebleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVendAñadirInmuebleMouseClicked
         // tabla buscar inmueble
@@ -2766,6 +2840,7 @@ public class interfaz extends javax.swing.JFrame {
         this.btnVendVentaGuardar.setEnabled(true);
         this.btnVendVentaEliminar.setEnabled(false);
         this.btnVendVentaModificar.setEnabled(false);
+        this.btnVendBuscarCliente.setEnabled(true);
         //txt enabled
         this.txtVendVentaDni.setEditable(true);
         this.txtVendVentaNombre.setEditable(true);
@@ -2804,6 +2879,31 @@ public class interfaz extends javax.swing.JFrame {
         this.txtVendVentaTelefono.setEditable(false);
         this.txtVendVentaInmueble.setEditable(false);
     }//GEN-LAST:event_btnVendVentaModificarActionPerformed
+
+    private void tablaVendAñadirClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaVendAñadirClienteMouseClicked
+        // tabla buscar cliente
+        int fila;
+        
+        
+        fila = this.tablaVendAñadirCliente.rowAtPoint(evt.getPoint());
+             if (fila > -1){                
+                dni = ( String.valueOf( this.tablaVendAñadirCliente.getValueAt(fila, 0) ));  
+                nombre = ( String.valueOf( this.tablaVendAñadirCliente.getValueAt(fila, 1) ));
+                apellidos = ( String.valueOf( this.tablaVendAñadirCliente.getValueAt(fila, 2) ));
+                telefono = ( String.valueOf( this.tablaVendAñadirCliente.getValueAt(fila, 3) ));
+            }
+            
+        
+    }//GEN-LAST:event_tablaVendAñadirClienteMouseClicked
+
+    private void btnVenVentaAñadirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenVentaAñadirClienteActionPerformed
+        //Añadir buscar cliente
+        this.txtVendVentaDni.setText(dni);
+        this.txtVendVentaNombre.setText(nombre);
+        this.txtVendVentaApellidos.setText(apellidos);
+        this.txtVendVentaTelefono.setText(telefono);
+        this.diagBuscarCliente.dispose();
+    }//GEN-LAST:event_btnVenVentaAñadirClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2859,9 +2959,10 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JButton btnTitVentaModificar;
     private javax.swing.JButton btnTitVentaSalir;
     private javax.swing.JButton btnTitVentas;
+    private javax.swing.JButton btnVenVentaAñadirCliente;
     private javax.swing.JButton btnVenVentaAñadirInmueble;
     private javax.swing.JButton btnVendBuscarCliente;
-    private javax.swing.JButton btnVendBuscarCliente1;
+    private javax.swing.JButton btnVendBuscarInmueble;
     private javax.swing.JButton btnVendClienteEliminar;
     private javax.swing.JButton btnVendClienteGuardar;
     private javax.swing.JButton btnVendClienteModificar;
@@ -2877,6 +2978,7 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbVendVenta;
     private com.toedter.calendar.JDateChooser dcTitular;
     private com.toedter.calendar.JDateChooser dcVendedor;
+    private javax.swing.JDialog diagBuscarCliente;
     private javax.swing.JDialog diagBuscarInmueble;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2936,6 +3038,7 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -2943,6 +3046,7 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JLabel lblNombreAgencia;
     private javax.swing.JLabel lblNombreAgencia1;
     private javax.swing.JLabel lblNombreAgencia2;
@@ -2975,6 +3079,7 @@ public class interfaz extends javax.swing.JFrame {
     private javax.swing.JTable tablaTitInmueble;
     private javax.swing.JTable tablaTitVendedor;
     private javax.swing.JTable tablaTitVentas;
+    private javax.swing.JTable tablaVendAñadirCliente;
     private javax.swing.JTable tablaVendAñadirInmueble;
     private javax.swing.JTable tablaVendCliente;
     private javax.swing.JTable tablaVendVentas;
